@@ -89,10 +89,18 @@ class HomeController extends Controller
         $formulario = new Formulario();
         $formulario->apellidopaterno = $request->apellidopaterno;
         $formulario->apellidomaterno = $request->apellidomaterno;
+        $formulario->nombre = $request->nombre;
+        $formulario->rut = $request->rut;
+        $formulario->nacionalidad = $request->nacionalidad;
+        $formulario->fechanacimiento = $request->fechanacimiento;     
+        $formulario->comuna = $request->comuna;
+        $formulario->ciudad = $request->ciudad;
+        $formulario->region = $request->region;
+        $formulario->tipodepropiedad = $request->tipodepropiedad;
+        $formulario->direccion = $request->direccion;
         $formulario->email = $request->email;
         $formulario->mensaje = $request->mensaje;
         $formulario->telefono = $request->telefono;
-        $formulario->rut = $request->rut;
         $formulario->save();
         return response()->json($request);
     }

@@ -20,71 +20,80 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <p class=h3>Datos Asegurado</p>
-                        <p class=h5>Nombre y Apellidos</p>
-                        <label for="Apellido Paterno">Paterno</label>
-                        <input type="text" class="form-control" id="apellidopaterno" name="Apellido Paterno" placeholder="ApellidoPaterno">
-                        <label for="Apellido Materno">Materno</label>
-                        <input type="text" class="form-control" id="apellidomaterno" name="Apellido Materno" placeholder="ApellidoMaterno">
-                        <label for="Nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="Nombre" placeholder="Nombre">
+                        <div class=input-group>
+                            <span class="input-group-text">Nombre</span>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                        </div>
+                        <div class=input-group>
+                            <span class="input-group-text">Apellidos</span>
+                            <input type="text" class="form-control" id="apellidopaterno" name="apellidopaterno" placeholder="Apellido Paterno">
+                            <input type="text" class="form-control" id="apellidomaterno" name="apellidomaterno" placeholder="Apellido Materno">
+                        </div>
+
                         <p class="h5">Fecha nacimiento, Rut, Nacionalidad</p>
-                        <label for="RUT">Rut</label>
-                        <input type="text" class="form-control" id="rut" name="rut" placeholder="Rut">
-                        <label for="Nacionalidad">Nacionalidad</label>
-                        <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" placeholder="Nacionalidad">
-                        <label for="Fecha Nacimiento">Fecha Nacimiento</label>
-                        <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento" placeholder="Fecha Nacimiento">
-                    </div>
+                        <div class=input-group>
+                            <span class="input-group-text">Rut</span>
+                            <input type="text" class="form-control" id="rut" name="rut" placeholder="Rut">
+                        </div>
+                        <div class=input-group>
+                            <span class="input-group-text">Nacionalidad</span>
+                            <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" placeholder="Nacionalidad">
+                        </div>
+                        <div class=input-group>
+                            <span class="input-group-text">Fecha Nacimiento</span>
+                            <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento" placeholder="Fecha Nacimiento">
+                        </div>
 
-                    <div class="form-group">
                     </div>
-
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <p class=h3>Datos de Contacto</p>
-                        <label for="Direccion">Direccion</label>
-                        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion">
-                        <label for="Comuna">Comuna</label>
-                        <input type="text" class="form-control" id="comuna" name="comuna" placeholder="Comuna">
-                        <label for="Ciudad">Ciudad</label>
-                        <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad">
-                        <label for="Region">Region</label>
-                        <input type="text" class="form-control" id="region" name="region" placeholder="Region">
-                        <Label for="Tipo de Propiedad">Tipo de Propiedad</Label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="PropiaPagada" id="propiapagada" value="Propia Pagada">
-                            <label class="form-check-label" for="propiapagada">Propia Pagada</label>
+                        <div class=input-group>
+                            <span class="input-group-text">Direccion</span>
+                            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion">
+                        </div>
+                        <div class=input-group>
+                            <span class="input-group-text">Comuna</span>
+                            <input type="text" class="form-control" id="comuna" name="comuna" placeholder="Comuna">
+                        </div>
+                        <div class=input-group>
+                            <span class="input-group-text">Ciudad</span>
+                            <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad">
+                        </div>
+                        <div class=input-group>
+                            <span class="input-group-text">Region</span>
+                            <input type="text" class="form-control" id="region" name="region" placeholder="Region">
                         </div>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="PropiaConDeuda" id="propiacondeuda" value="Propia Con Deuda">
-                            <label class="form-check-label" for="PropiaConDeuda">Propia Con Deuda</label>
+                        <div class="form-group">
+                            <label for="tipodepropiedad">Selecione El Tipo de Propiedad:</label>
+                            <select class="form-control" id="tipodepropiedad">
+                                <option>Propia Pagada</option>
+                                <option>Propia Con Deuda</option>
+                                <option>Arrendada</option>
+                                <option>Allegado</option>
+                                <option>Otro</option>
+                            </select>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Arrendada" id="arrendada" value="Arrendada">
-                            <label class="form-check-label" for="arrendada">Arrendada</label>
+                        <div class=input-group>
+                            <span class="input-group-text">Email</span>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Allegado" id="allegado" value="Allegado">
-                            <label class="form-check-label" for="allegado">Allegado</label>
+                        <div class=input-group>
+                            <span class="input-group-text">Telefono</span>
+                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Otro" id="otro" value="Otro">
-                            <label class="form-check-label" for="otro">Otro</label>
-                        </div>
-
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                        <label for="telefono">Telefono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
                     </div>
-
-                    <div class="form-group">
-                        <label from="mensaje">Mensaje</label>
-                        <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>
+            </div>
+            <div class="form-group">
+                <label from="mensaje">Mensaje</label>
+                <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
     </form>
 
 
