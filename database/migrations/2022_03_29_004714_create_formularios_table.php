@@ -15,9 +15,12 @@ class CreateFormulariosTable extends Migration
     {
         Schema::create('formularios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('apellidopaterno');
+            $table->string('apellidomaterno');
             $table->string('email');
             $table->text('mensaje')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('rut')->nullable();
             $table->timestamps();
         });
     }
