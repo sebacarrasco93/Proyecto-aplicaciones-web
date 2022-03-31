@@ -87,6 +87,7 @@ class HomeController extends Controller
     public function formulario(Request $request)
     {
         $formulario = new Formulario();
+        $formulario->tiposolicitud = $request->tiposolicitud;
         $formulario->apellidopaterno = $request->apellidopaterno;
         $formulario->apellidomaterno = $request->apellidomaterno;
         $formulario->nombre = $request->nombre;
@@ -102,6 +103,6 @@ class HomeController extends Controller
         $formulario->mensaje = $request->mensaje;
         $formulario->telefono = $request->telefono;
         $formulario->save();
-        return response()->json($request);
+        return response()->json($request->all());
     }
 }
