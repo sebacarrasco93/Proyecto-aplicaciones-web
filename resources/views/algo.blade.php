@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,13 @@
 </head>
 
 <body>
-    <h1 class="align-text-top text-center">Mockup Formulario Fonasa</h1>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-text">
+                Formulario Fonasa DESARROLLO
+            </span>
+        </div>
+    </nav>
 
     <!-- Creacion de Formulario de Contacto -->
     <form action="{{ route('formulario') }}" method="POST">
@@ -30,15 +36,12 @@
                             <input type="text" class="form-control" id="apellidomaterno" name="apellidomaterno" placeholder="Apellido Materno">
                         </div>
 
-                        <p class="h5">Fecha nacimiento, Rut, Nacionalidad</p>
                         <div class=input-group>
-                            <span class="input-group-text">Rut</span>
+                            <span class="input-group-text">Rut y Nacionalidad</span>
                             <input type="text" class="form-control" id="rut" name="rut" placeholder="Rut">
-                        </div>
-                        <div class=input-group>
-                            <span class="input-group-text">Nacionalidad</span>
                             <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" placeholder="Nacionalidad">
                         </div>
+
                         <div class=input-group>
                             <span class="input-group-text">Fecha Nacimiento</span>
                             <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento" placeholder="Fecha Nacimiento">
@@ -60,20 +63,17 @@
                         <div class=input-group>
                             <span class="input-group-text">Ciudad</span>
                             <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad">
-                        </div>
-                        <div class=input-group>
-                            <span class="input-group-text">Region</span>
                             <input type="text" class="form-control" id="region" name="region" placeholder="Region">
                         </div>
 
                         <div class="form-group">
-                            <label for="tipodepropiedad">Selecione El Tipo de Propiedad:</label>
-                            <select class="form-control" id="tipodepropiedad">
-                                <option>Propia Pagada</option>
-                                <option>Propia Con Deuda</option>
-                                <option>Arrendada</option>
-                                <option>Allegado</option>
-                                <option>Otro</option>
+                            <span class="input-group-text">Tipo de Propiedad</span>
+                            <select type="text" class="form-control" id="tipodepropiedad">
+                                <option value="Propia Pagada">Propia Pagada</option>
+                                <option value="Propia Con Deuda">Propia Con Deuda</option>
+                                <option value="Arrendada">Arrendada</option>
+                                <option value="Allegado">Allegado</option>
+                                <option value="Otro">Otro</option>
                             </select>
                         </div>
                         <div class=input-group>
