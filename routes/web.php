@@ -18,5 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+route::get('/login', function () {
+    return view('login');
+});
+//logout lavarel V8
+Route::get('/logout', function () {
+    auth()->logout();
+    return redirect('/login');
+});
+
 Route::resource('/home', HomeController::class);
 Route::post('/home/formulario', HomeController::class.'@formulario')->name('formulario');

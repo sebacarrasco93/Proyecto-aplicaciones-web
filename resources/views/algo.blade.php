@@ -10,22 +10,16 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <span class="navbar-text">
-                Formulario Fonasa DESARROLLO
-            </span>
-        </div>
-    </nav>
-
+    @include('partials.navbarForm')
     <!-- Creacion de Formulario de Contacto -->
     <form action="{{ route('formulario') }}" method="POST">
         @csrf
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <span class="input-group-text" for="tiposolicitud">Tipo de solicitud</span>
-                    <select id="tiposolicitud" name="tiposolicitud" class="form-control">
+                    <label for="" class="col-form-label">Tipo de Solicitud</label>
+                    <select id="tiposolicitud" name="tiposolicitud" class="form-select">
+                        <option value="">Seleccione una opción</option>
                         <option value="Afilacion">Afilacion</option>
                         <option value="Actualizacion Antecedentes">Actualizacion Antecedentes</option>
                         <option value="Incorporacion o Eliminacion Cargas">Incorporacion o Eliminacion Cargas Familiares</option>
@@ -72,8 +66,9 @@
                             </div>
 
                             <div class="form-group">
-                                <span class="input-group-text" for="tipodepropiedad">Tipo de Propiedad</span>
-                                <select id="tipodepropiedad" name="tipodepropiedad" class="form-control">
+                                <label for="" class="col-form-label">Tipo de Propiedad</label>
+                                <select id="tipodepropiedad" name="tipodepropiedad" class="form-select">
+                                    <option value="">Seleccione una opción</option>
                                     <option value="Propia Pagada">Propia Pagada</option>
                                     <option value="Propia Con Deuda">Propia Con Deuda</option>
                                     <option value="Arrendada">Arrendada</option>
