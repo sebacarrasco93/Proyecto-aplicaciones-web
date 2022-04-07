@@ -93,7 +93,8 @@ class HomeController extends Controller
         $formulario->nombre = $request->nombre;
         $formulario->rut = $request->rut;
         $formulario->nacionalidad = $request->nacionalidad;
-        $formulario->fechanacimiento = $request->fechanacimiento;     
+        $formulario->fechanacimiento = $request->fechanacimiento;
+        $formulario->sexo = $request->sexo;     
         $formulario->comuna = $request->comuna;
         $formulario->ciudad = $request->ciudad;
         $formulario->region = $request->region;
@@ -102,6 +103,7 @@ class HomeController extends Controller
         $formulario->email = $request->email;
         $formulario->mensaje = $request->mensaje;
         $formulario->telefono = $request->telefono;
+        $formulario->concentimiento = $request->concentimiento;
         $formulario->save();
         return response()->json($request->all());
     }

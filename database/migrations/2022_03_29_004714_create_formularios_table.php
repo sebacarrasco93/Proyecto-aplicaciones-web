@@ -22,6 +22,7 @@ class CreateFormulariosTable extends Migration
             $table->string('rut')->nullable();
             $table->string('nacionalidad')->nullable();
             $table->string('fechanacimiento')->nullable();
+            $table->string('sexo')->nullable();
             $table->string('direccion')->nullable();
             $table->string('comuna')->nullable();
             $table->string('ciudad')->nullable();
@@ -29,6 +30,7 @@ class CreateFormulariosTable extends Migration
             $table->string('tipodepropiedad')->nullable();
             $table->string('email');
             $table->string('telefono')->nullable();
+            $table->string('concentimiento')->nullable();
             $table->text('mensaje')->nullable();
             $table->timestamps();
         });

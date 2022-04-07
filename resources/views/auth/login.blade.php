@@ -16,11 +16,11 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h1>Login</h1>
-                <form action="/login" method="POST">
+                <form action="/auth/login" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                        <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
