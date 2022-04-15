@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,27 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-route::get('/login', function () {
-    return view('auth.login');
-});
-
-Route::get('/logout', function () {
-    auth()->logout();
-    return redirect('auth.login');
-});
-
 route::get('/faq', function () {
     return view('faq');
 });
 
-// Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
- 
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('registration', [AuthController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
+Route::get('dashboard', [AuthController::class, 'dashboard']); 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::resource('/home', HomeController::class);
-Route::post('/home/formulario', HomeController::class.'@formulario')->name('formulario');
+Route::post('/home/formulario', HomeController::class . '@formulario')->name('formulario');

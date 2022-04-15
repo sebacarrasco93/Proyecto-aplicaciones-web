@@ -31,6 +31,9 @@ class CreateFormulariosTable extends Migration
             $table->string('email');
             $table->string('telefono')->nullable();
             $table->string('concentimiento')->nullable();
+            $table->string('tipoasegurado');
+            $table->string('pensionado')->nullable();
+            $table->string('pagadorapension')->nullable();
             $table->text('mensaje')->nullable();
             $table->timestamps();
         });

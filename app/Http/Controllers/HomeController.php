@@ -104,6 +104,9 @@ class HomeController extends Controller
         $formulario->mensaje = $request->mensaje;
         $formulario->telefono = $request->telefono;
         $formulario->concentimiento = $request->concentimiento;
+        $formulario->tipoasegurado = $request->tipoasegurado;
+        $formulario->pensionado = $request->pensionado;
+        $formulario->pagadorapension = $request->pagadorapension;
         $formulario->save();
         return response()->json($request->all());
     }
