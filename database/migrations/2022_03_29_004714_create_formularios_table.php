@@ -16,14 +16,14 @@ class CreateFormulariosTable extends Migration
         Schema::create('formularios', function (Blueprint $table) {
             $table->id();
             $table->string('tiposolicitud');
-            $table->string('nombre')->nullable();
+            $table->string('user_name')->nullable();
             $table->string('apellidopaterno')->nullable();
             $table->string('apellidomaterno')->nullable();
-            $table->string('rut')->nullable();
+            $table->string('user_dni')->nullable();
             $table->string('nacionalidad')->nullable();
             $table->string('fechanacimiento')->nullable();
             $table->string('sexo')->nullable();
-            $table->string('direccion')->nullable();
+            $table->string('user_address')->nullable();
             $table->string('comuna')->nullable();
             $table->string('ciudad')->nullable();
             $table->string('region')->nullable();

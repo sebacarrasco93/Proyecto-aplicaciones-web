@@ -90,8 +90,8 @@ class HomeController extends Controller
         $formulario->tiposolicitud = $request->tiposolicitud;
         $formulario->apellidopaterno = $request->apellidopaterno;
         $formulario->apellidomaterno = $request->apellidomaterno;
-        $formulario->nombre = $request->nombre;
-        $formulario->rut = $request->rut;
+        $formulario->user_name = $request->user_name;
+        $formulario->user_dni = $request->user_dni;
         $formulario->nacionalidad = $request->nacionalidad;
         $formulario->fechanacimiento = $request->fechanacimiento;
         $formulario->sexo = $request->sexo;     
@@ -99,7 +99,7 @@ class HomeController extends Controller
         $formulario->ciudad = $request->ciudad;
         $formulario->region = $request->region;
         $formulario->tipodepropiedad = $request->tipodepropiedad;
-        $formulario->direccion = $request->direccion;
+        $formulario->user_address = $request->user_address;
         $formulario->email = $request->email;
         $formulario->mensaje = $request->mensaje;
         $formulario->telefono = $request->telefono;
