@@ -1,6 +1,6 @@
 async function verPension() {
     let pension = document.getElementById("pensionado").value;
-    if (pension == "0") {
+    if (pension == "No_Pensionado") {
         pensionSi.hidden = "hidden";
     } else if (pension == "Vejez") {
         pensionSi.hidden = false;
@@ -18,8 +18,6 @@ async function verPension() {
         pensionSi.hidden = false;
     }
 }
-
-
 
 async function cargas() {
     let cantCargas = document.getElementById("cantCargas").value;
