@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Formulario;
+use App\Models\form_users;
+use App\Models\form_data;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
