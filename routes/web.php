@@ -24,13 +24,6 @@ route::get('/faq', function () {
     return view('faq');
 });
 
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
-Route::get('registration', [AuthController::class, 'registration'])->name('register');
-Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
-Route::get('dashboard', [AuthController::class, 'dashboard']);
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-
 Route::resource('/home', HomeController::class);
 Route::post('/home/formulario', HomeController::class . '@formulario')->name('formulario');
 Route::post('/home/form_data', HomeController::class . '@form_data')->name('formulario.data');
