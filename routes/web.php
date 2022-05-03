@@ -1,9 +1,8 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use App\Controllers\HomeController;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +16,7 @@ use App\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('algo', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return view('algo');
 });
 
 route::get('/faq', function () {
@@ -30,8 +24,8 @@ route::get('/faq', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 

@@ -3005,7 +3005,7 @@ function Login(_ref) {
         className: "mt-4",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_5__["default"], {
           forInput: "password",
-          value: "Contraseña"
+          value: "Password"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_4__["default"], {
           type: "password",
           name: "password",
@@ -3024,7 +3024,7 @@ function Login(_ref) {
             handleChange: onHandleChange
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
             className: "ml-2 text-sm text-gray-600",
-            children: "Recordar inicio de sesión"
+            children: "Remember me"
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
@@ -3032,11 +3032,11 @@ function Login(_ref) {
         children: [canResetPassword && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__.Link, {
           href: route('password.request'),
           className: "underline text-sm text-gray-600 hover:text-gray-900",
-          children: "¿Olvidó Su Contraseña?"
+          children: "Forgot your password?"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
           className: "ml-4",
           processing: processing,
-          children: "Iniciar Sesión"
+          children: "Log in"
         })]
       })]
     })]

@@ -7,7 +7,7 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Acceso Restringido, Porfavor ingrese su contraseña') }}
+            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
         </div>
 
         <!-- Validation Errors -->
