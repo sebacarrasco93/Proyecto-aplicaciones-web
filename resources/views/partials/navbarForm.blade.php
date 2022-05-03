@@ -18,9 +18,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <!-- <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top"> -->
             <img src="/img/gobierno.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-            Formulario Fonasa - DEV
+            Formulario Fonasa
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,9 +36,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Soporte</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">Cerrar Sesión</a>
                 </li>
             </ul>
         </div>
