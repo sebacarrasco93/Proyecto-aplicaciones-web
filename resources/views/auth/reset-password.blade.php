@@ -37,16 +37,34 @@
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">
                                 <div class="w-100">
-                                    <h4 class="mb-4" align="center">¿Olvidó Su Contraseña?</h4>
+                                    <h4 class="mb-4" align="center">Genere su nueva contraseña</h4>
                                 </div>
                             </div>
-                            <form method="POST" action="{{ route('password.update') }}" class="signin-form">
+                            <form method="POST" action="{{ route('password.update') }}">
                                 @csrf
                                 <input type="hidden" name="token" value="{{ $request->route('token') }}">
                                 <div class="form-group mt-3">
-                                    <input type="email" class="form-control" id="email" type="email" name="email" value="{{ $request->email }}">
-                                    <label class="form-control-placeholder" for="email">Correo Electronico</label>
+                                    <input type="email" class="form-control" id="email" type="email" name="email"
+                                        value="{{ $request->email }}">
+                                    <label class="form-control-placeholder" for="password">Contraseña</label>
                                 </div>
+                                <div class="form-group">
+                                    <input id="password" type="password" class="form-control" name="password"
+                                        autocomplete="current-password" required />
+                                    <label class="form-control-placeholder" for="password">Contraseña</label>
+                                    <span toggle="#password-field"
+                                        class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <input id="password-confirm" type="password" class="form-control"
+                                        name="password_confirmation" autocomplete="current-password" required />
+                                    <label class="form-control-placeholder" for="password-confirm">Confirmar
+                                        Contraseña</label>
+                                    <span toggle="#password-field"
+                                        class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                </div>
+
                                 <div class="form-group">
                                     <button type="submit" class="form-control btn btn-primary rounded submit px-3"
                                         id="reset" name="reset" value="Update">
