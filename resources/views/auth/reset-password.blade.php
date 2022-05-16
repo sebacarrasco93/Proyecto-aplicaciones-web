@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 </head>
 
 <style>
@@ -33,7 +36,6 @@
             <div class="row justify-content-center">
                 <div class="col-md-7 col-lg-5">
                     <div class="wrap">
-                        <div class="img" style="background-image: url(img/fonasa_2.jpg)"></div>
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">
                                 <div class="w-100">
@@ -46,7 +48,7 @@
                                 <div class="form-group mt-3">
                                     <input type="email" class="form-control" id="email" type="email" name="email"
                                         value="{{ $request->email }}">
-                                    <label class="form-control-placeholder" for="password">Contraseña</label>
+                                    <label class="form-control-placeholder" for="email">Correo Electronico</label>
                                 </div>
                                 <div class="form-group">
                                     <input id="password" type="password" class="form-control" name="password"
@@ -84,7 +86,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{{ asset('js/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('js/popper.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
 </body>
