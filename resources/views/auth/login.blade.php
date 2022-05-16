@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,11 +12,19 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<!-- Session Status -->
-<x-auth-session-status class="mb-4" :status="session('status')" />
+<style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 
-<!-- Validation Errors -->
-<x-auth-validation-errors class="mb-4" :errors="$errors" />
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
 
 <body>
     <section class="ftco-section">
