@@ -16,20 +16,22 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('algo');
+    return view('form');
 });
 
 route::get('/faq', function () {
     return view('faq');
 });
 
+Route::get('/home', function () {
+    dd(\Illuminate\Support\Facades\Auth::user());
+})->middleware(['auth', 'verified']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth']);
 
-require __DIR__.'/auth.php';
-
-Route::resource('/home', HomeController::class);
-Route::post('/home/formulario', HomeController::class . '@formulario')->name('formulario');
-Route::post('/home/form_data', HomeController::class . '@form_data')->name('formulario.data');
-Route::post('/home/form_users', HomeController::class . '@form_users')->name('formulario.users');
+Route::resource('/form', HomeController::class);
+Route::post('/form/formulario', HomeController::class . '@formulario')->name('formulario');
+Route::post('/form/form_data', HomeController::class . '@form_data')->name('formulario.data');
+Route::post('/form/form_users', HomeController::class . '@form_users')->name('formulario.users');
