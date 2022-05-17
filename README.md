@@ -1,5 +1,3 @@
-# Proyecto Aplicaciones Web
+# Proyecto para la asignatura de Aplicaciones Web de la Universidad San Sebastián
 
-## El proyecto esta basado en Lavarel junto a mysql y PHP. 
-
-Se utilizo Laragon para su inicializacion.
+## Proyecto utiliza el Framework Laravel
