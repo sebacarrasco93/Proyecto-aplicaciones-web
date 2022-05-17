@@ -31,8 +31,8 @@
 </style>
 
 <body>
-    @include('partials.navbarForm')
     <!-- Creacion de Formulario de Contacto -->
+    @include('partials.navbarForm')
     <form action="{{ route('formulario') }}" class="needs-validation" method="POST" novalidate>
         @csrf
         <div class="container">

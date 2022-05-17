@@ -16,7 +16,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('algo');
+    return view('form');
 });
 
 route::get('/faq', function () {
@@ -25,7 +25,11 @@ route::get('/faq', function () {
 
 Route::get('/home', function () {
     dd(\Illuminate\Support\Facades\Auth::user());
-})->middleware('auth');
+})->middleware(['auth', 'verified']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth']);
 
 Route::resource('/form', HomeController::class);
 Route::post('/form/formulario', HomeController::class . '@formulario')->name('formulario');
