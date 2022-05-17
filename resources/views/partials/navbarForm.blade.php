@@ -28,16 +28,35 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/login">Inicio Sesión <span
-                            class="sr-only">(current)</span></a>
+                    @if (Route::has('login'))
+                        <div class="top-right links">
+                            @auth
+                                <a class="nav-link" href="{{ url('/dashboard') }}">Home <span
+                                        class="sr-only">(current)</span></a>
+                            @else
+                                <a class="nav-link" href="{{ route('login') }}">Inicio Sesión <span
+                                        class="sr-only">(current)</span></a>
+                            @endauth
+                    @endif
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/faq">Preguntas Frecuentes</a>
+                    @if (Route::has('login'))
+                        <div class="top-right links">
+                            @auth
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault('logout-form'); document.getElementById('logout-form').submit();">Cerrar
+                                    Sesion</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                                    @csrf
+                                </form>
+                            @endauth
+                    @endif
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Soporte</a>
                 </li>
             </ul>
+
         </div>
     </nav>
 </body>

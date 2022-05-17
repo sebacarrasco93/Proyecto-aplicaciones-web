@@ -89,14 +89,18 @@ class HomeController extends Controller
     public function formulario(Request $request)
     {
         $formulario = new Formulario();
+        $form_users = new form_users();
         $formulario->tiposolicitud = $request->tiposolicitud;
+        $form_users->apellidopaterno = $request->apellidopaterno;
         $formulario->apellidopaterno = $request->apellidopaterno;
+        $form_users->apellidomaterno = $request->apellidomaterno;
         $formulario->apellidomaterno = $request->apellidomaterno;
+        $form_users->user_name = $request->user_name;
         $formulario->user_name = $request->user_name;
         $formulario->user_dni = $request->user_dni;
         $formulario->nacionalidad = $request->nacionalidad;
         $formulario->fechanacimiento = $request->fechanacimiento;
-        $formulario->sexo = $request->sexo;     
+        $formulario->sexo = $request->sexo;
         $formulario->comuna = $request->comuna;
         $formulario->ciudad = $request->ciudad;
         $formulario->region = $request->region;
@@ -109,6 +113,7 @@ class HomeController extends Controller
         $formulario->tipoasegurado = $request->tipoasegurado;
         $formulario->pensionado = $request->pensionado;
         $formulario->pagadorapension = $request->pagadorapension;
+        $form_users->save();
         $formulario->save();
         return response()->json($request->all());
     }
