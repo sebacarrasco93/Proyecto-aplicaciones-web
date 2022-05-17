@@ -29,7 +29,7 @@ Route::get('/home', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth']);
+})->middleware(['auth', 'verified']);
 
 Route::resource('/form', HomeController::class);
 Route::post('/form/formulario', HomeController::class . '@formulario')->name('formulario');
