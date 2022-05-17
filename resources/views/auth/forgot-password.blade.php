@@ -40,6 +40,11 @@
                                     <h4 class="mb-4" align="center">¿Olvidó Su Contraseña?</h4>
                                 </div>
                             </div>
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
                             <form method="POST" action="{{ route('password.request') }}" class="signin-form">
                                 @csrf
                                 <div class="form-group mt-3">
