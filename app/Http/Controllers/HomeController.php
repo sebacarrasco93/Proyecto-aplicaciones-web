@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('algo');
+        return view('admin.formdata.index')->with(['formularios' => Formulario::all()]);
     }
 
     /**
