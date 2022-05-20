@@ -1,3 +1,8 @@
-# Proyecto para la asignatura de Aplicaciones Web de la Universidad San Sebastián
+# Proyecto Aplicaciones y Tecnologias de la Web
+## Universidad San Sebastián - Chile
 
-## Proyecto utiliza el Framework Laravel
+### Integrantes:
+* Rodrigo Chang
+* Carlos Tello
+* Ignacio Garrido
+* Javier Gonzales
