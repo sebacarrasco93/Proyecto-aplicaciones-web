@@ -36,7 +36,7 @@
                     @if (Route::has('login'))
                         <div class="top-right links">
                             @auth
-                                <a class="nav-link" href="{{ url('/dashboard') }}">Home <span
+                                <a class="nav-link" href="{{ url('/admin') }}">Home <span
                                         class="sr-only">(current)</span></a>
                             @else
                                 <a class="nav-link" href="{{ route('login') }}">Inicio Sesión <span
