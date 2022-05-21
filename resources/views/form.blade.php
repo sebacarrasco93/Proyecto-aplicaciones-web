@@ -180,14 +180,20 @@
                 </div>
                 <div class="input-group espaciado">
                     <span class="input-group-text">Email</span>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="invalid-feedback">
+                    Por favor ingrese un email
                 </div>
                 <div class="input-group espaciado">
                     <span class="input-group-text">Telefono</span>
-                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
+                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" required>
+                </div>
+                <div class="invalid-feedback">
+                    Por favor ingrese un telefono
                 </div>
                 <!-- Radio Button Concentimiento Fonasa -->
-                <div class="offset-md-1">
+                <div class="offset-md-1" required>
                     <label for="concentimiento" class="form-label">Autorizo a Fonasa para que envíe información a mi
                         email y/o telefono celular :</label>
                     <div class="form-check form-check-inline">
@@ -243,42 +249,63 @@
                     <div class="col-mb-4">
                         <div class="input-group espaciado">
                             <div class="form-floating col col-sm-4 ">
-                                <input type="text" class="form-control" id="Emp_rut" name="rut" placeholder="Rut">
+                                <input type="text" class="form-control" id="Emp_rut" name="rut" placeholder="Rut" required>
                                 <label for="Emp_rut">Rut</label>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor ingrese su rut
                             </div>
                             <div class="form-floating col col-sm-4">
                                 <input type="text" class="form-control" id="Emp_nombre" name="nombre"
-                                    placeholder="Nombre">
+                                    placeholder="Nombre" required>
                                 <label for="Emp_nombre">Nombre o Razon Social</label>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor ingrese nombre o razon social
                             </div>
                             <div class="form-floating col col-sm-4">
                                 <input type="text" class="form-control" id="Emp_tel" name="Telefono"
-                                    placeholder="Telefono">
+                                    placeholder="Telefono" required>
                                 <label for="Emp_tel">Telefono</label>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor ingrese telefono
                             </div>
                         </div>
                         <!-- Direccion larga por tema estetico para escritura -->
                         <div class="form-floating mb-3 mt-3">
                             <input type="text" class="form-control" id="Emp_direccion" name="direccion"
-                                placeholder="Direccion">
+                                placeholder="Direccion" required>
                             <label for="Emp_direccion">Direccion</label>
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor ingrese direccion
                         </div>
                         <!-- Continuacion Formulario -->
                         <div class="input-group espaciado">
                             <div class="form-floating col-4 col-sm-4">
                                 <input type="number" class="form-control" id="Emp_RentaMensual"
-                                    name="Renta Imponible Mensual" placeholder="Renta Imponible Mensual">
+                                    name="Renta Imponible Mensual" placeholder="Renta Imponible Mensual" required>
                                 <label for="Emp_RentaMensual">Renta Imp. Mensual</label>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor ingrese Renta Imp. Mensual
                             </div>
                             <div class="form-floating col col-sm-4">
                                 <input type="date" class="form-control" id="Emp_ContratoInicio"
-                                    name="Inicio Vigencia Contrato" placeholder="Inicio Vigencia Contrato">
+                                    name="Inicio Vigencia Contrato" placeholder="Inicio Vigencia Contrato" required>
                                 <label for="Emp_ContratoInicio">Inicio Contrato</label>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor ingrese Inicio Contrato
                             </div>
                             <div class="form-floating col col-sm-4">
                                 <input type="date" class="form-control" id="Emp_ContratoTermino"
-                                    name="Termino Vigencia Contrato" placeholder="Termino Vigencia Contrato">
+                                    name="Termino Vigencia Contrato" placeholder="Termino Vigencia Contrato" required>
                                 <label for="Emp_ContratoTermino">Termino Contrato</label>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor ingrese Termino Contrato
                             </div>
                         </div>
                     </div>
