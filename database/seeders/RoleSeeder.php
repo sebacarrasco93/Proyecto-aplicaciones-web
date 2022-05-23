@@ -17,16 +17,8 @@ class RoleSeeder extends Seeder
     {
         //Role::factory()->times(10)->create();
 
-        DB::table('roles')->insert([
-            'name' => 'Admin',
-        ]);
-
-        DB::table('roles')->insert([
-            'name' => 'User',
-        ]);
-
-        DB::table('roles')->insert([
-            'name' => 'External',
-        ]);
+        Role::create(['name' => 'Admin']);
+        Role::create(['name' => 'User']);
+        Role::create(['name' => 'External']);
     }
 }
