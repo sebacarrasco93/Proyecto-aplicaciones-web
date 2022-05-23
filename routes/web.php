@@ -30,12 +30,3 @@ Route::get('/home', function () {
 // Rutas para el Formulario
 Route::resource('/form', HomeController::class);
 Route::post('/form/formulario', HomeController::class . '@formulario')->name('formulario');
-
-// Rutas para el administrador
-Route::prefix('admin')->name('admin.')->group(function(){
-    Route::get('/', function () {
-        return view('admin.index');
-    })->middleware(['auth', 'verified']);
-    Route::resource('/users', UserController::class)->middleware(['auth', 'verified']);
-    Route::resource('/formdata', HomeController::class)->middleware(['auth', 'verified']);
-});
