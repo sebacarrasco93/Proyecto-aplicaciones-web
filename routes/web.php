@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-#use HomeController;
-use Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +20,6 @@ Route::get('/', function () {
 route::get('/faq', function () {
     return view('faq');
 });
-
-Route::get('/home', function () {
-    dd(\Illuminate\Support\Facades\Auth::user());
-})->middleware(['auth', 'verified']);
 
 // Rutas para el Formulario
 Route::resource('/form', HomeController::class);
