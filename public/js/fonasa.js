@@ -1,21 +1,43 @@
 async function verPension() {
-    let pension = document.getElementById("pensionado").value;
-    if (pension == "No_Pensionado") {
+    let tipoasegurado = document.getElementById("tipoasegurado").value;
+    if (tipoasegurado == "Si_Pensionado") {
+        pensionSi.hidden = false;
+        selectPension.hidden = false;
+        inputEmpleador.hidden = false;
+    } else if (tipoasegurado == "Dep_CIndefinido") {
         pensionSi.hidden = "hidden";
-    } else if (pension == "Vejez") {
-        pensionSi.hidden = false;
+        selectPension.hidden = "hidden";
+        inputEmpleador.hidden = false;
     }
-    else if (pension == "Viudez") {
-        pensionSi.hidden = false;
+    else if (tipoasegurado == "Dep_CPlazoFijo") {
+        pensionSi.hidden = "hidden";
+        selectPension.hidden = "hidden";
+        inputEmpleador.hidden = false;
     }
-    else if (pension == "Orfandad") {
-        pensionSi.hidden = false;
+    else if (tipoasegurado == "Dep_CFaenaObra") {
+        pensionSi.hidden = "hidden";
+        selectPension.hidden = "hidden";
+        inputEmpleador.hidden = false;
     }
-    else if (pension == "Invalidez") {
-        pensionSi.hidden = false;
+    else if (tipoasegurado == "Dep_CTurnoJornada") {
+        pensionSi.hidden = "hidden";
+        selectPension.hidden = "hidden";
+        inputEmpleador.hidden = false;
     }
-    else if (pension == "En_Tramite") {
-        pensionSi.hidden = false;
+    else if (tipoasegurado == "Dep_TrabajadorPensionadoSalud") {
+        pensionSi.hidden = "hidden";
+        selectPension.hidden = "hidden";
+        inputEmpleador.hidden = false;
+    }
+    else if (tipoasegurado == "Independiente") {
+        pensionSi.hidden = "hidden";
+        selectPension.hidden = "hidden";
+        inputEmpleador.hidden = false;
+    }
+    else if (tipoasegurado == "Cesante") {
+        pensionSi.hidden = "hidden";
+        selectPension.hidden = false;
+        inputEmpleador.hidden = "hidden";
     }
 }
 
@@ -71,10 +93,10 @@ async function showEstabNo() {
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
     'use strict';
-  
+
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     const forms = document.querySelectorAll('.needs-validation');
-  
+
     // Loop over them and prevent submission
     Array.prototype.slice.call(forms).forEach((form) => {
       form.addEventListener('submit', (event) => {
