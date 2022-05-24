@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index')->with(['users' => User::all(), 'roles' => Role::all()]);
+        return view('admin.users.index')->with(['users' => User::paginate(10)]);
     }
 
     /**
@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create')->with(['roles' => Role::all()]);
     }
 
     /**
@@ -59,9 +59,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -82,6 +80,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect(route('admin.users.index'));
     }
 }
