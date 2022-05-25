@@ -32,7 +32,6 @@
 </style>
 
 <body>
-    <!-- Creacion de Formulario de Contacto -->
     @include('partials.navbarForm')
     <form action="{{ route('formulario') }}" class="needs-validation" method="POST" novalidate>
         @csrf
@@ -285,12 +284,12 @@
                                 onchange="verPension()" required>
                                 <option selected disabled value="">Tipo de Asegurado</option>
                                 <option value="Cesante">Cesante</option>
-                                <option value="Si_Pensionado">Pensionado o en Proceso</option>
+                                <option value="Pensionado">Pensionado o en Proceso</option>
                                 <option value="Dep_CIndefinido">Contrato Indefinido</option>
                                 <option value="Dep_CPlazoFijo">Contrato a plazo fijo</option>
                                 <option value="Dep_CFaenaObra">Contrato por obra o faena</option>
                                 <option value="Dep_CTurnoJornada">Contrato por turno o jornada</option>
-                                <option value="Dep_TrabajadorPensionadoSalud">pensionado del sector salud
+                                <option value="PensionadoSalud">Pensionado Sector Salud
                                 </option>
                                 <option value="Independiente">Independiente</option>
                             </select>
@@ -298,13 +297,22 @@
                                 Por favor seleccione una opción
                             </div>
                         </div>
+
+                        <fieldset hidden id=selectCesantia>
+                            <div class="input-group espaciado">
+                                <select id="tipoCesantia" name="tipoCesantia" class="form-select">
+                                    <option selected disabled value="No_Cesante">Tipo de Cesantia</option>
+                                    <option value="SubsidoCesantia">Cesante Seguro Cesantía</option>
+                                    <option value="SeguroDesempleo">Cesante Seguro Desempleo</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
                         <fieldset hidden id=selectPension>
                             <div class="input-group espaciado">
                                 <select id="pensionado" name="pensionado" class="form-select">
                                     <option selected disabled value="No_Pensionado">Seleccione su Pensión o Cesantía
                                     </option>
-                                    <option value="Ces_SubsidoCesantia">Cesante Seguro Cesantía</option>
-                                    <option value="Ces_SeguroDesempleo">Cesante Seguro Desempleo</option>
                                     <option value="Pen_Vejez">Vejez</option>
                                     <option value="Pen_Viudez">Viudez</option>
                                     <option value="Pen_Orfandad">Orfandad</option>
@@ -320,7 +328,7 @@
                         <p class=h4>Institucion Pagadora Pension</p>
                         <div class="input-group espaciado">
                             <select id="pagadorapension" name="pagadorapension" class="form-select">
-                                <option selected disabled value="0">Seleccione Su Institucion</option>
+                                <option selected disabled value="No_Pensionado">Seleccione Su Institucion</option>
                                 <option value="IPS">IPS</option>
                                 <option value="AFP">AFP</option>
                                 <option value="CiaSeguros">Cia de Seguros</option>
@@ -391,10 +399,25 @@
                         </div>
                         <hr>
                     </fieldset>
+
+                    <fieldset hidden id=rentaTotal>
+                        <p class=h4>Total de Ingresos</p>
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
+                                    <input type="number" class="form-control" id="Renta_Total"
+                                        name="Ingresos totales" placeholder="Ingresos totales" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingrese el total de ingresos
+                                    </div>
+                                    <label for="Renta_Total">Ingresos totales</label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </fieldset>
                 </div>
-                <!--<div class="row mb-3">
-                            <label for="rentfinal">Total de ingresos $ <input type="number" id="rentfinal"></label>
-                        </div>-->
+
                 <div class="col-md-8 offset-md-2">
 
                     <p class=h4>Cargas Familiares</p>
@@ -402,7 +425,7 @@
 
                     <div class="form-group espaciado">
                         <div class="input-group espaciado">
-                            <select class="form-select" id="cantCargas" onchange="cargas()">
+                            <select class="form-select" id="cantCargas" onchange="cargas()" required>
                                 <option selected disabled value="">Cantidad de Cargas</option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -411,8 +434,12 @@
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Por favor seleccione una cantidad de cargas
+                            </div>
                         </div>
                     </div>
+
                     <!-- Inicio Carga1 -->
                     <fieldset hidden id="carga1">
                         <div class="row g-2">
@@ -460,14 +487,14 @@
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <select class="form-select" id="Parentesco">
+                                    <select class="form-select" id="CarPar">
                                         <option selected disabled value="">Seleccione Parentesco</option>
                                         <option value="Conyuge">Conyuge</option>
                                         <option value="Ascendiente">Ascendiente</option>
                                         <option value="Descendiente">Descendiente</option>
                                         <option value="Hijo_Discapacitado">Hijo con discapacidad</option>
                                     </select>
-                                    <label for="Parentesco">Parentesco</label>
+                                    <label for="CarPar">Parentesco</label>
                                 </div>
                             </div>
                         </div>
@@ -477,39 +504,51 @@
 
                     <!-- Inicio Carga2 -->
                     <fieldset hidden id="carga2">
-                        <div class="row mb-3">
-                            <div class="input-group espaciado">
-                                <div class="form-floating mb-3 mt-3">
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <input type="number" class="form-control" id="carRut2" name="carRut2"
-                                        placeholder="carRut2">
+                                        placeholder="Rut">
                                     <label for="carRut2">Rut</label>
                                 </div>
-                                <div class="form-floating mb-3 mt-3">
-                                    <input type="text" class="form-control" id="carApellido2" name="carApellido2"
-                                        placeholder="carApellido2">
-                                    <label for="carApellido2">Apellido</label>
-                                </div>
-                                <div class="form-floating mb-3 mt-3">
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <input type="text" class="form-control" id="carNombre2" name="carNombre2"
-                                        placeholder="carNombre2">
+                                        placeholder="Nombre">
                                     <label for="carNombre2">Nombre</label>
                                 </div>
-                                <div class="form-floating mb-4 mt-3">
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
+                                    <input type="text" class="form-control" id="carApellido2" name="carApellido2"
+                                        placeholder="Apellido">
+                                    <label for="carApellido2">Apellido</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <input type="date" class="form-control" id="carNac2" name="carNac2"
-                                        placeholder="Fecha Nacimiento2">
+                                        placeholder="Fecha Nacimiento">
                                     <label for="carNac2">Nacimiento</label>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-md-3">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <select id="carSexo2" name="carSexo2" class="form-select">
                                         <option selected disabled value="0">Sexo</option>
-                                        <option value="M">Masculino</option>
-                                        <option value="F">Femenino</option>
-                                        <option value="O">Prefiero No Decirlo</option>
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
+                                        <option value="Otro">Prefiero No Decirlo</option>
                                     </select>
+                                    <label for="carSexo2">Sexo</label>
                                 </div>
-                                <div class="col-md-5">
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <select class="form-select" id="CarPar2">
                                         <option selected disabled value="">Seleccione Parentesco</option>
                                         <option value="Conyuge">Conyuge</option>
@@ -517,6 +556,7 @@
                                         <option value="Descendiente">Descendiente</option>
                                         <option value="Hijo_Discapacitado">Hijo con discapacidad</option>
                                     </select>
+                                    <label for="CarPar2">Parentesco</label>
                                 </div>
                             </div>
                         </div>
@@ -524,40 +564,54 @@
                     </fieldset>
                     <!-- Fin Carga2 -->
 
+                    <!-- Inicio Carga3 -->
                     <fieldset hidden id="carga3">
-                        <div class="row mb-3">
-                            <div class="input-group espaciado">
-                                <div class="form-floating mb-3 mt-3">
+
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <input type="number" class="form-control" id="carRut3" name="carRut3"
-                                        placeholder="carRut3">
+                                        placeholder="Rut">
                                     <label for="carRut3">Rut</label>
                                 </div>
-                                <div class="form-floating mb-3 mt-3">
-                                    <input type="text" class="form-control" id="carApellido3" name="carApellido3"
-                                        placeholder="carApellido3">
-                                    <label for="carApellido3">Apellido</label>
-                                </div>
-                                <div class="form-floating mb-3 mt-3">
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <input type="text" class="form-control" id="carNombre3" name="carNombre3"
-                                        placeholder="carNombre3">
+                                        placeholder="Nombre">
                                     <label for="carNombre3">Nombre</label>
                                 </div>
-                                <div class="form-floating mb-4 mt-3">
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
+                                    <input type="text" class="form-control" id="carApellido3" name="carApellido3"
+                                        placeholder="Apellido">
+                                    <label for="carApellido3">Apellido</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <input type="date" class="form-control" id="carNac3" name="carNac3"
-                                        placeholder="Fecha Nacimiento3">
+                                        placeholder="Fecha Nacimiento">
                                     <label for="carNac3">Nacimiento</label>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-md-3">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <select id="carSexo3" name="carSexo3" class="form-select">
-                                        <option selected disabled value="0">Sexo</option>
-                                        <option value="M">Masculino</option>
-                                        <option value="F">Femenino</option>
-                                        <option value="O">Prefiero No Decirlo</option>
+                                        <option selected disabled value="">Sexo</option>
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
+                                        <option value="Otro">Prefiero No Decirlo</option>
                                     </select>
+                                    <label for="carSexo3">Sexo</label>
                                 </div>
-                                <div class="col-md-5">
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <select class="form-select" id="CarPar3">
                                         <option selected disabled value="">Seleccione Parentesco</option>
                                         <option value="Conyuge">Conyuge</option>
@@ -565,46 +619,62 @@
                                         <option value="Descendiente">Descendiente</option>
                                         <option value="Hijo_Discapacitado">Hijo con discapacidad</option>
                                     </select>
+                                    <label for="CarPar3">Parentesco</label>
                                 </div>
                             </div>
                         </div>
                         <hr>
                     </fieldset>
+                    <!-- Fin Carga3 -->
 
+                    <!-- Inicio Carga4 -->
                     <fieldset hidden id="carga4">
-                        <div class="row mb-3">
-                            <div class="input-group espaciado">
-                                <div class="form-floating mb-3 mt-3">
+
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <input type="number" class="form-control" id="carRut4" name="carRut4"
-                                        placeholder="carRut4">
+                                        placeholder="Rut">
                                     <label for="carRut4">Rut</label>
                                 </div>
-                                <div class="form-floating mb-3 mt-3">
-                                    <input type="text" class="form-control" id="carApellido4" name="carApellido4"
-                                        placeholder="carApellido4">
-                                    <label for="carApellido4">Apellido</label>
-                                </div>
-                                <div class="form-floating mb-3 mt-3">
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <input type="text" class="form-control" id="carNombre4" name="carNombre4"
-                                        placeholder="carNombre4">
+                                        placeholder="Nombre">
                                     <label for="carNombre4">Nombre</label>
                                 </div>
-                                <div class="form-floating mb-4 mt-3">
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
+                                    <input type="text" class="form-control" id="carApellido4" name="carApellido4"
+                                        placeholder="Apellido">
+                                    <label for="carApellido4">Apellido</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <input type="date" class="form-control" id="carNac4" name="carNac4"
-                                        placeholder="Fecha Nacimiento4">
+                                        placeholder="Fecha Nacimiento">
                                     <label for="carNac4">Nacimiento</label>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-md-3">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <select id="carSexo4" name="carSexo4" class="form-select">
-                                        <option selected disabled value="0">Sexo</option>
-                                        <option value="M">Masculino</option>
-                                        <option value="F">Femenino</option>
-                                        <option value="O">Prefiero No Decirlo</option>
+                                        <option selected disabled value="">Sexo</option>
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
+                                        <option value="Otro">Prefiero No Decirlo</option>
                                     </select>
+                                    <label for="carSexo4">Sexo</label>
                                 </div>
-                                <div class="col-md-5">
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <select class="form-select" id="CarPar4">
                                         <option selected disabled value="">Seleccione Parentesco</option>
                                         <option value="Conyuge">Conyuge</option>
@@ -612,46 +682,61 @@
                                         <option value="Descendiente">Descendiente</option>
                                         <option value="Hijo_Discapacitado">Hijo con discapacidad</option>
                                     </select>
+                                    <label for="CarPar4">Parentesco</label>
                                 </div>
                             </div>
                         </div>
                         <hr>
                     </fieldset>
+                    <!-- Fin Carga4 -->
 
+                    <!-- Inicio Carga5 -->
                     <fieldset hidden id="carga5">
-                        <div class="row mb-3">
-                            <div class="input-group espaciado">
-                                <div class="form-floating mb-3 mt-3">
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <input type="number" class="form-control" id="carRut5" name="carRut5"
-                                        placeholder="carRut5">
+                                        placeholder="Rut">
                                     <label for="carRut5">Rut</label>
                                 </div>
-                                <div class="form-floating mb-3 mt-3">
-                                    <input type="text" class="form-control" id="carApellido5" name="carApellido5"
-                                        placeholder="carApellido5">
-                                    <label for="carApellido5">Apellido</label>
-                                </div>
-                                <div class="form-floating mb-3 mt-3">
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <input type="text" class="form-control" id="carNombre5" name="carNombre5"
-                                        placeholder="carNombre5">
+                                        placeholder="Nombre">
                                     <label for="carNombre5">Nombre</label>
                                 </div>
-                                <div class="form-floating mb-4 mt-3">
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
+                                    <input type="text" class="form-control" id="carApellido5" name="carApellido5"
+                                        placeholder="Apellido">
+                                    <label for="carApellido5">Apellido</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <input type="date" class="form-control" id="carNac5" name="carNac5"
-                                        placeholder="Fecha Nacimiento5">
+                                        placeholder="Fecha Nacimiento">
                                     <label for="carNac5">Nacimiento</label>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-md-3">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <select id="carSexo5" name="carSexo5" class="form-select">
-                                        <option selected disabled value="0">Sexo</option>
-                                        <option value="M">Masculino</option>
-                                        <option value="F">Femenino</option>
-                                        <option value="O">Prefiero No Decirlo</option>
+                                        <option selected disabled value="">Sexo</option>
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
+                                        <option value="Otro">Prefiero No Decirlo</option>
                                     </select>
+                                    <label for="carSexo5">Sexo</label>
                                 </div>
-                                <div class="col-md-5">
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
                                     <select class="form-select" id="CarPar5">
                                         <option selected disabled value="">Seleccione Parentesco</option>
                                         <option value="Conyuge">Conyuge</option>
@@ -659,10 +744,13 @@
                                         <option value="Descendiente">Descendiente</option>
                                         <option value="Hijo_Discapacitado">Hijo con discapacidad</option>
                                     </select>
+                                    <label for="CarPar5">Parentesco</label>
                                 </div>
                             </div>
                         </div>
                     </fieldset>
+                    <!-- Fin Carga5 -->
+
                     <hr>
                     <P class=h4>Establecimientos Publicos de Salud</h4>
                     <div class="row mb-3">
@@ -683,37 +771,46 @@
                     </div>
                     <hr>
                     <fieldset hidden id=estabSalud>
-                        <p class=h4>Informe Su Establecimiento</p>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="establecimiento" class="form-label">Cual:</label>
-                                <input type="text" class="form-control" id="establecimiento">
+                        <p class=h4>¿En cual se encuentra inscrito?</p>
+
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
+                                    <input type="text" class="form-control" id="establecimiento"
+                                        name="establecimiento" placeholder="Nombre Establecimiento">
+                                    <label for="establecimiento">Nombre Establecimiento</label>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <label for="comuna" class="form-label">Comuna</label>
-                                <input type="text" class="form-control" id="establecimientoComuna">
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
+                                    <input type="text" class="form-control" id="establecimientoComuna"
+                                        name="establecimientoComuna" placeholder="Comuna">
+                                    <label for="establecimientoComuna">Comuna</label>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <label for="" class="form-label">Región</label>
-                                <select class="form-select" id="establecimeintoRegion">
-                                    <option value="">Seleccionar</option>
-                                    <option value="I">I. Tarapacá</option>
-                                    <option value="II">II. Antofagasta </option>
-                                    <option value="III">III. Atacama</option>
-                                    <option value="IV">IV. Coquimbo</option>
-                                    <option value="V">V. Valparaíso</option>
-                                    <option value="VI">VI. O'Higgins</option>
-                                    <option value="VII">VII. Maule</option>
-                                    <option value="VIII">VIII. Bío Bío</option>
-                                    <option value="IX">IX. Araucanía</option>
-                                    <option value="X">X. Los Lagos</option>
-                                    <option value="XI">XI. Aysén</option>
-                                    <option value="XII">XII. Magallanes</option>
-                                    <option value="RM">RM. Santiago</option>
-                                    <option value="XIV">XIV. Los Ríos</option>
-                                    <option value="XV">XV. Arica y Parinacota</option>
-                                    <option value="XVI">XVI. Ñuble</option>
-                                </select>
+                            <div class="col-md">
+                                <div class="form-floating espaciado">
+                                    <select class="form-select" id="establecimeintoRegion">
+                                        <option value="">Seleccionar</option>
+                                        <option value="I">I. Tarapacá</option>
+                                        <option value="II">II. Antofagasta </option>
+                                        <option value="III">III. Atacama</option>
+                                        <option value="IV">IV. Coquimbo</option>
+                                        <option value="V">V. Valparaíso</option>
+                                        <option value="VI">VI. O'Higgins</option>
+                                        <option value="VII">VII. Maule</option>
+                                        <option value="VIII">VIII. Bío Bío</option>
+                                        <option value="IX">IX. Araucanía</option>
+                                        <option value="X">X. Los Lagos</option>
+                                        <option value="XI">XI. Aysén</option>
+                                        <option value="XII">XII. Magallanes</option>
+                                        <option value="RM">RM. Santiago</option>
+                                        <option value="XIV">XIV. Los Ríos</option>
+                                        <option value="XV">XV. Arica y Parinacota</option>
+                                        <option value="XVI">XVI. Ñuble</option>
+                                    </select>
+                                    <label for="establecimeintoRegion">Región</label>
+                                </div>
                             </div>
                         </div>
                         <hr>
