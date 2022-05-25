@@ -1,43 +1,60 @@
 async function verPension() {
     let tipoasegurado = document.getElementById("tipoasegurado").value;
-    if (tipoasegurado == "Si_Pensionado") {
+    if (tipoasegurado == "Pensionado") {
         pensionSi.hidden = false;
         selectPension.hidden = false;
         inputEmpleador.hidden = false;
+        selectCesantia.hidden = "hidden";
+        rentaTotal.hidden = false;
+
     } else if (tipoasegurado == "Dep_CIndefinido") {
         pensionSi.hidden = "hidden";
         selectPension.hidden = "hidden";
+        selectCesantia.hidden = "hidden";
         inputEmpleador.hidden = false;
+        rentaTotal.hidden = false;
     }
     else if (tipoasegurado == "Dep_CPlazoFijo") {
         pensionSi.hidden = "hidden";
         selectPension.hidden = "hidden";
+        selectCesantia.hidden = "hidden";
         inputEmpleador.hidden = false;
+        rentaTotal.hidden = false;
     }
     else if (tipoasegurado == "Dep_CFaenaObra") {
         pensionSi.hidden = "hidden";
         selectPension.hidden = "hidden";
+        selectCesantia.hidden = "hidden";
         inputEmpleador.hidden = false;
+        rentaTotal.hidden = false;
     }
     else if (tipoasegurado == "Dep_CTurnoJornada") {
         pensionSi.hidden = "hidden";
         selectPension.hidden = "hidden";
+        selectCesantia.hidden = "hidden";
         inputEmpleador.hidden = false;
+        rentaTotal.hidden = false;
     }
-    else if (tipoasegurado == "Dep_TrabajadorPensionadoSalud") {
-        pensionSi.hidden = "hidden";
-        selectPension.hidden = "hidden";
+    else if (tipoasegurado == "PensionadoSalud") {
+        pensionSi.hidden = false;
+        selectPension.hidden = false;
+        selectCesantia.hidden = "hidden";
         inputEmpleador.hidden = false;
+        rentaTotal.hidden = false;
     }
     else if (tipoasegurado == "Independiente") {
         pensionSi.hidden = "hidden";
         selectPension.hidden = "hidden";
-        inputEmpleador.hidden = false;
+        selectCesantia.hidden = "hidden";
+        inputEmpleador.hidden = "hidden";
+        rentaTotal.hidden = false;
     }
     else if (tipoasegurado == "Cesante") {
         pensionSi.hidden = "hidden";
-        selectPension.hidden = false;
+        selectPension.hidden = "hidden";
         inputEmpleador.hidden = "hidden";
+        selectCesantia.hidden = false;
+        rentaTotal.hidden = false;
     }
 }
 
