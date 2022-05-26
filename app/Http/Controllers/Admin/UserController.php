@@ -37,7 +37,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create($request->except(['_token', 'roles']));
+
+        $user->roles()->sync($request->roles);
+
+        return redirect(route('admin.users.index'));
     }
 
     /**
@@ -59,6 +63,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        return view('admin.users.edit')->with(['roles' => Role::all(), 'user' => User::find($id)]);
     }
     /**
      * Update the specified resource in storage.
@@ -69,7 +74,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->update($request->except(['_token', 'roles']));
+        $user->roles()->sync($request->roles);
+
+        return redirect(route('admin.users.index'));
     }
 
     /**

@@ -28,13 +28,12 @@
                         <td>{{ $user->created_at }}</td>
                         <td>
                             <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary">Editar</a>
-
-                            <form id="delete-user-form-{{ $user->id }}"
-                                action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display: none"
+                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
+                                class="d-inline">
+                                @method('DELETE')
                                 @csrf
-                                @method("DELETE")
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
                             </form>
-                            <button type="button" class="btn btn-danger" onclick="document.getElementById('delete-user-form-{{ $user->id }}').submit();">Eliminar</button>
                         </td>
                     </tr>
                 @endforeach
