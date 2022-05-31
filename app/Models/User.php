@@ -43,13 +43,29 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = Hash::make($password);
-    }
-
     public function roles()
     {
         return $this->belongsToMany('App\Models\Role');
     }
+
+    /**
+    * Revisa si los usuarios tienen un rol especifico
+    * @param string $role
+    * @return bool
+    */
+
+    /*public function hasAnyRole(string $role)
+    {
+        return null !== $this->roles()->where('name', $role)->first();
+    }
+    /**
+    * Revisa si los usuarios tienen un o mas roles especificos
+    * @param array $role
+    * @return bool
+    */
+
+    /*public function hasAnyRoles(array $role)
+    {
+        return null !== $this->roles()->whereIn('name', $role)->first();
+    }*/
 }

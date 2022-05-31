@@ -99,9 +99,9 @@
                             <div class="col-md">
                                 <div class="form-floating espaciado">
                                     <input type="text" class="form-control" id="user_dni" name="user_dni"
-                                        placeholder="Rut" required>
-                                    <div class="invalid-feedback">
-                                        Ingrese Rut
+                                        placeholder="Rut" required onblur="validarRut()">
+                                    <div class="invalid-feedback" >
+                                        Ingrese Rut/RUT Invalido
                                     </div>
                                     <label for="rut">Rut</label>
                                 </div>

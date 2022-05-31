@@ -17,6 +17,15 @@
             <label class="form-control-placeholder" for="password">Contraseña</label>
             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
         </div>
+
+        <div class="form-group">
+            <input id="password-confirm" type="password" class="form-control"
+                   name="password_confirmation" autocomplete="current-password" required />
+            <label class="form-control-placeholder" for="password-confirm">Confirmar
+                Contraseña</label>
+            <span toggle="#password-field"
+                  class="fa fa-fw fa-eye field-icon toggle-password"></span>
+        </div>
     @endisset
     <div class="mb-3">
         @foreach ($roles as $role)
