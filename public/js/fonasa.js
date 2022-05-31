@@ -107,6 +107,36 @@ async function showEstabNo() {
     document.getElementById("estabSalud").hidden = "hidden";
 }
 
+/*
+ * Libre API Validar RUT
+ * https://docs.libreapi.cl/es/#validar
+ */
+function validarRut() {
+    let rut = document.getElementById("user_dni").value;
+    var settings = {
+        "url": "https://api.libreapi.cl/rut/validate?rut=" + rut,
+        "method": "GET",
+        "timeout": 0,
+    };
+
+    $.ajax(settings).done(function (response) {
+        if (response.hasOwnProperty('data')) {
+            if (response.data.hasOwnProperty('valid')) {
+                if (response.data.valid == true) {
+                    //console.log(response.data.valid);
+                    document.getElementById("user_dni").style.borderColor = "green";
+                }
+                else {
+                    //console.log(response.data.valid);
+                    document.getElementById("user_dni").style.borderColor = "red";
+                    document.getElementById("user_dni").value = "";
+                    alert("Rut no válido");
+                }
+            }
+        }
+    });
+
+}
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
     'use strict';

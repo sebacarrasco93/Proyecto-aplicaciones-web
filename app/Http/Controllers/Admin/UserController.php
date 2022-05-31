@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 
 class UserController extends Controller
 {
@@ -37,9 +39,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->except(['_token', 'roles']));
+        $newUser = new CreateNewUser();
+        $user = $newUser->create($request->only('name', 'email', 'password', 'password_confirmation'));
 
         $user->roles()->sync($request->roles);
+
+        Password::sendResetLink($request->only(['email']));
+
+        $request->session()->flash('success', 'Se ha creado correctamente el usuario');
 
         return redirect(route('admin.users.index'));
     }
@@ -74,10 +81,17 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
+        $user = User::find($id);
+
+        if(!$user){
+            $request->session()->flash('error', 'No se puede modificar el usuario, solicite ayuda al administrador');
+            return redirect(route('admin.users.index'));
+        }
+
         $user->update($request->except(['_token', 'roles']));
         $user->roles()->sync($request->roles);
 
+        $request->session()->flash('success', 'Se ha actualizado correctamente el usuario');
         return redirect(route('admin.users.index'));
     }
 
@@ -87,9 +101,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         User::destroy($id);
+        $request->session()->flash('success', 'El Usuario ha sido eliminado Exitosamente');
         return redirect(route('admin.users.index'));
     }
 }
