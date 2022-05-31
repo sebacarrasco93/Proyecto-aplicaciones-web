@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -46,4 +47,25 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsToMany('App\Models\Role');
     }
+
+    /**
+    * Revisa si los usuarios tienen un rol especifico
+    * @param string $role
+    * @return bool
+    */
+
+    /*public function hasAnyRole(string $role)
+    {
+        return null !== $this->roles()->where('name', $role)->first();
+    }
+    /**
+    * Revisa si los usuarios tienen un o mas roles especificos
+    * @param array $role
+    * @return bool
+    */
+
+    /*public function hasAnyRoles(array $role)
+    {
+        return null !== $this->roles()->whereIn('name', $role)->first();
+    }*/
 }

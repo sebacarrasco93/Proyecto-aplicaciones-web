@@ -10,11 +10,12 @@
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">
                                 <div class="w-100">
-                                    <h4 class="mb-4" align="center">Creación de Usuario</h4>
+                                    <h4 class="mb-4" align="center">Edición de Usuario</h4>
                                 </div>
                             </div>
-                            <form method="POST" action="{{ route('admin.users.store') }}">
-                                @include('admin.users.partials.registerUsers', ['create' => true])
+                            <form method="POST" action="{{ route('admin.users.update', $user->id) }}">
+                                @method('PATCH')
+                                @include('admin.users.partials.registerUsers')
                             </form>
                         </div>
                     </div>
