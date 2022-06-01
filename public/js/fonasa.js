@@ -117,9 +117,25 @@ function validarRut() {
         "url": "https://api.libreapi.cl/rut/validate?rut=" + rut,
         "method": "GET",
         "timeout": 0,
+        statusCode: {
+            400: function (response) {
+                document.getElementById("user_dni").style.borderColor = "red";
+                document.getElementById("user_dni").value = "";
+                alert("El Rut es Invalido");
+            }
+        }
     };
 
     $.ajax(settings).done(function (response) {
+        //Para Formatear el RUT de forma correcta SOLO si es que el campo existe
+        if (response.hasOwnProperty('data')) {
+            if (response.data.hasOwnProperty('rut')) {
+                //console.log(response.data.message);
+                document.getElementById("user_dni").value = response.data.rut;
+            }
+        }
+
+        //Validación del RUT
         if (response.hasOwnProperty('data')) {
             if (response.data.hasOwnProperty('valid')) {
                 if (response.data.valid == true) {
