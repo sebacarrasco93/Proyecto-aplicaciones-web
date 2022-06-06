@@ -122,6 +122,7 @@ function validarRut() {
                 document.getElementById("user_dni").style.borderColor = "red";
                 document.getElementById("user_dni").value = "";
                 alert("El Rut es Invalido");
+                event.preventDefault();
             }
         }
     };
@@ -144,15 +145,44 @@ function validarRut() {
                 }
                 else {
                     //console.log(response.data.valid);
-                    document.getElementById("user_dni").style.borderColor = "red";
                     document.getElementById("user_dni").value = "";
-                    alert("Rut no válido");
+                    document.getElementById("user_dni").style.borderColor = "red";
+                    //alert("Rut no válido");
                 }
             }
         }
     });
 
 }
+
+function UserAddress() {
+    var input = document.getElementById('user_address');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.addListener('place_changed', function() {
+        var place = autocomplete.getPlace();
+        document.getElementById('location-snap').
+            innerHTML = place.formatted_address;
+        document.getElementById('lat-span').
+            innerHTML = place.geometry.location.lat();
+        document.getElementById('lon-span').
+            innerHTML = place.geometry.location.lng();
+    });
+}
+
+function EmpAddress() {
+    var input = document.getElementById('Emp_direccion');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.addListener('place_changed', function() {
+        var place = autocomplete.getPlace();
+        document.getElementById('location-snap').
+            innerHTML = place.formatted_address;
+        document.getElementById('lat-span').
+            innerHTML = place.geometry.location.lat();
+        document.getElementById('lon-span').
+            innerHTML = place.geometry.location.lng();
+    });
+}
+
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
     'use strict';
