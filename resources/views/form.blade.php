@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="{{ asset('js/fonasa.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"
+        async defer></script>
 </head>
 <style>
     /* Chrome, Safari, Edge, Opera */
@@ -101,7 +103,7 @@
                                     <input type="text" class="form-control" id="user_dni" name="user_dni"
                                         placeholder="Rut" required onblur="validarRut()">
                                     <div class="invalid-feedback" >
-                                        Ingrese Rut/RUT Invalido
+                                        Ingrese Rut
                                     </div>
                                     <label for="rut">Rut</label>
                                 </div>
@@ -156,7 +158,7 @@
                         <div class="col-md">
                             <div class="form-floating espaciado">
                                 <input type="text" class="form-control" id="user_address" name="user_address"
-                                    placeholder="Direccion" required>
+                                    placeholder="Direccion" required onclick="UserAddress()">
                                 <div class="invalid-feedback">
                                     Por favor ingrese su direccion
                                 </div>
@@ -343,7 +345,7 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="Emp_rut" name="rut" placeholder="Rut">
+                                    <input type="text" class="form-control" id="Emp_rut" name="rut" placeholder="Rut" onblur="validarRutEmp()">
                                     <label for="Emp_rut">Rut</label>
                                 </div>
                             </div>
@@ -368,7 +370,7 @@
                             <div class="col-md">
                                 <div class="form-floating espaciado">
                                     <input type="text" class="form-control" id="Emp_direccion" name="direccion"
-                                        placeholder="Direccion">
+                                        placeholder="Direccion" onclick="EmpAddress()">
                                     <label for="Emp_direccion">Direccion</label>
                                 </div>
                             </div>

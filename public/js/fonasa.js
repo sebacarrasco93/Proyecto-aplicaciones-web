@@ -117,9 +117,26 @@ function validarRut() {
         "url": "https://api.libreapi.cl/rut/validate?rut=" + rut,
         "method": "GET",
         "timeout": 0,
+        statusCode: {
+            400: function (response) {
+                document.getElementById("user_dni").style.borderColor = "red";
+                document.getElementById("user_dni").value = "";
+                alert("El Rut es Invalido");
+                event.preventDefault();
+            }
+        }
     };
 
     $.ajax(settings).done(function (response) {
+        //Para Formatear el RUT de forma correcta SOLO si es que el campo existe
+        if (response.hasOwnProperty('data')) {
+            if (response.data.hasOwnProperty('rut')) {
+                //console.log(response.data.message);
+                document.getElementById("user_dni").value = response.data.rut;
+            }
+        }
+
+        //Validación del RUT
         if (response.hasOwnProperty('data')) {
             if (response.data.hasOwnProperty('valid')) {
                 if (response.data.valid == true) {
@@ -128,15 +145,82 @@ function validarRut() {
                 }
                 else {
                     //console.log(response.data.valid);
-                    document.getElementById("user_dni").style.borderColor = "red";
                     document.getElementById("user_dni").value = "";
-                    alert("Rut no válido");
+                    document.getElementById("user_dni").style.borderColor = "red";
+                    //alert("Rut no válido");
                 }
             }
         }
     });
 
 }
+
+//Para Empresa
+function validarRutEmp() {
+    let rut = document.getElementById("Emp_rut").value;
+    var settings = {
+        "url": "https://api.libreapi.cl/rut/validate?rut=" + rut,
+        "method": "GET",
+        "timeout": 0,
+        statusCode: {
+            400: function (response) {
+                document.getElementById("Emp_rut").style.borderColor = "red";
+                document.getElementById("Emp_rut").value = "";
+                alert("El Rut es Invalido");
+                event.preventDefault();
+            }
+        }
+    };
+
+    $.ajax(settings).done(function (response) {
+        //Para Formatear el RUT de forma correcta SOLO si es que el campo existe
+        if (response.hasOwnProperty('data')) {
+            if (response.data.hasOwnProperty('rut')) {
+                //console.log(response.data.message);
+                document.getElementById("Emp_rut").value = response.data.rut;
+            }
+        }
+
+        //Validación del RUT
+        if (response.hasOwnProperty('data')) {
+            if (response.data.hasOwnProperty('valid')) {
+                if (response.data.valid == true) {
+                    //console.log(response.data.valid);
+                    document.getElementById("Emp_rut").style.borderColor = "green";
+                }
+                else {
+                    //console.log(response.data.valid);
+                    document.getElementById("Emp_rut").value = "";
+                    document.getElementById("Emp_rut").style.borderColor = "red";
+                    //alert("Rut no válido");
+                }
+            }
+        }
+    });
+
+}
+
+/*
+ * API Completado Dirección Google Maps
+ * https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete
+ */
+
+function UserAddress() {
+    var input = document.getElementById('user_address');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.addListener('place_changed', function() {
+        var place = autocomplete.getPlacePredictions();
+    });
+}
+
+function EmpAddress() {
+    var input = document.getElementById('Emp_direccion');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.addListener('place_changed', function() {
+        var place = autocomplete.getPlacePredictions();
+    });
+}
+
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
     'use strict';
