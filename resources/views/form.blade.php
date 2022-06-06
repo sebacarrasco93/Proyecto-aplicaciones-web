@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="{{ asset('js/fonasa.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places&callback=activatePlacesSearch"
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"
         async defer></script>
 </head>
 <style>
@@ -345,7 +345,7 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="Emp_rut" name="rut" placeholder="Rut">
+                                    <input type="text" class="form-control" id="Emp_rut" name="rut" placeholder="Rut" onblur="validarRutEmp()">
                                     <label for="Emp_rut">Rut</label>
                                 </div>
                             </div>
