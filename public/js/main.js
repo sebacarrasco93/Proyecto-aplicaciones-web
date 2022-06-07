@@ -11,6 +11,6 @@
   } else {
     input.attr("type", "password");
   }
-});
+}); 
 
 })(jQuery);
