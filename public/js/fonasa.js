@@ -205,6 +205,12 @@ function validarRutEmp() {
  * https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete
  */
 
+function leftUser() {
+    var user_address = document.getElementById("user_address").value.split(",");
+    document.getElementById("comuna").value = user_address[1];
+    document.getElementById("ciudad").value = user_address[1];
+}
+
 function UserAddress() {
     var input = document.getElementById('user_address');
     var autocomplete = new google.maps.places.Autocomplete(input);
