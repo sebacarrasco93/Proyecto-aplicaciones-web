@@ -160,7 +160,7 @@
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating espaciado">
-                                <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad" required onfocus="leftUser()">
+                                <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad" required onblur="leftUser()">
                                 <div class="invalid-feedback">
                                     Por favor ingrese su ciudad
                                 </div>
@@ -169,7 +169,7 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating espaciado">
-                                <input type="text" class="form-control" id="comuna" name="comuna" placeholder="Comuna" required onfocus="leftUser()">
+                                <input type="text" class="form-control" id="comuna" name="comuna" placeholder="Comuna" required onblur="leftUser()">
                                 <div class="invalid-feedback">
                                     Por favor ingrese su comuna
                                 </div>

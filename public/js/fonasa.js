@@ -112,7 +112,7 @@ async function showEstabNo() {
  * https://docs.libreapi.cl/es/#validar
  */
 function validarRut() {
-    let rut = document.getElementById("user_dni").value;
+    var rut = document.getElementById("user_dni").value;
     var settings = {
         "url": "https://api.libreapi.cl/rut/validate?rut=" + rut,
         "method": "GET",
@@ -207,7 +207,7 @@ function validarRutEmp() {
 
 function leftUser() {
     var user_address = document.getElementById("user_address").value.split(",");
-    document.getElementById("comuna").value = user_address[1];
+    document.getElementById("comuna").value = user_address[2];
     document.getElementById("ciudad").value = user_address[1];
 }
 
