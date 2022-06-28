@@ -37,9 +37,7 @@
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">
                                 <div class="w-100">
-                                    <h4 class="mb-4" align="center">Debe Verificar Su Correo, Vea su Bandeja
-                                        de
-                                        Entrada</h4>
+                                    <h4 class="mb-4" align="center">Debe Verificar Su Correo, verifique su bandeja de entrada o solicite el correo de Verificación, presionando el botón.</h4>
                                 </div>
                                 @if (session('status'))
                                     <div class="alert alert-success" role="alert">
@@ -51,7 +49,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <button type="submit" class="form-control btn btn-primary rounded submit px-3">
-                                        Reenviar Correo
+                                        Envíar Correo
                                     </button>
                                 </div>
                         </div>
