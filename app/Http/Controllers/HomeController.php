@@ -60,7 +60,7 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.formdata.edit')->with(['formulario' => Formulario::find($id)]);
     }
 
     /**
@@ -72,7 +72,17 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $formulario = Formulario::find($id);
+
+        if(!$formulario) {
+            $request->session()->flash('error', 'No se puede modificar el usuario, solicite ayuda al administrador');
+            return redirect(route('admin.formdata.index'));
+        }
+
+        $formulario->fill($request->only('user_name', 'apellidopaterno'));
+        $formulario->save();
+        $request->session()->flash('success', 'Se ha modificado correctamente el formulario');
+        return redirect(route('admin.formdata.index'));
     }
 
     /**
@@ -81,9 +91,16 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $formulario = Formulario::find($id);
+        if (!$formulario) {
+            $request->session()->flash('error', 'No se encontró el formulario');
+            return response()->json(['error' => 'Formulario no encontrado'], 404);
+        }
+        $formulario->destroy($id);
+        $request->session()->flash('success', 'Se ha eliminado correctamente el formulario');
+        return redirect(route('admin.formdata.index'));
     }
 
     public function formulario(Request $request)
