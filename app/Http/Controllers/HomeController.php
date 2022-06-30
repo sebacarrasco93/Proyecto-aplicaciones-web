@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Formulario;
 use App\Models\form_users;
-use App\Models\form_data;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
 
 class HomeController extends Controller
 {
@@ -70,7 +68,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
         $formulario = Formulario::find($id);
 
@@ -79,7 +77,7 @@ class HomeController extends Controller
             return redirect(route('admin.formdata.index'));
         }
 
-        $formulario->fill($request->only('user_name', 'apellidopaterno'));
+        $formulario->update($request->except(['_token']));
         $formulario->save();
         $request->session()->flash('success', 'Se ha modificado correctamente el formulario');
         return redirect(route('admin.formdata.index'));
@@ -106,13 +104,9 @@ class HomeController extends Controller
     public function formulario(Request $request)
     {
         $formulario = new Formulario();
-        $form_users = new form_users();
         $formulario->tiposolicitud = $request->tiposolicitud;
-        $form_users->apellidopaterno = $request->apellidopaterno;
         $formulario->apellidopaterno = $request->apellidopaterno;
-        $form_users->apellidomaterno = $request->apellidomaterno;
         $formulario->apellidomaterno = $request->apellidomaterno;
-        $form_users->user_name = $request->user_name;
         $formulario->user_name = $request->user_name;
         $formulario->user_dni = $request->user_dni;
         $formulario->nacionalidad = $request->nacionalidad;
@@ -130,7 +124,6 @@ class HomeController extends Controller
         $formulario->tipoasegurado = $request->tipoasegurado;
         $formulario->pensionado = $request->pensionado;
         $formulario->pagadorapension = $request->pagadorapension;
-        $form_users->save();
         $formulario->save();
         return response()->json($request->all());
     }
