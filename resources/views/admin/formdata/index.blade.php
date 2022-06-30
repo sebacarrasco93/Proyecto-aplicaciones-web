@@ -28,15 +28,11 @@
                     <td>{{ $form->created_at }}</td>
                     <td>
                         <a href="{{ route('admin.formdata.edit', $form->id) }}" class="btn btn-primary">Editar</a>
-                        <button type="button" class="btn btn-danger" onclick="event.preventDefault();
-                                    document.getElementById('delete-form-form-{{ $form->id }}')">
-                            Eliminar
-                        </button>
-                        <form id="delete-form-form-{{ $form->id }}"
-                            action="{{ route('admin.formdata.destroy', $form->id) }}" method="POST"
-                            style="display: none;">
-                            @csrf
+                        <form action="{{ route('admin.formdata.destroy', $form->id) }}" method="POST"
+                              class="d-inline">
                             @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
                     </td>
                 </tr>
