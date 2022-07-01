@@ -1689,10 +1689,6 @@ pre code {
   color: #6c757d;
   opacity: 1;
 }
-.form-control:-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
 .form-control::placeholder {
   color: #6c757d;
   opacity: 1;
@@ -2116,7 +2112,6 @@ textarea.form-control {
   vertical-align: middle;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
@@ -9164,7 +9159,6 @@ h1, h2, h3, h4, h5,
   font-weight: 500;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 

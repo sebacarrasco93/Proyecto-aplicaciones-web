@@ -27,7 +27,6 @@
     input[type=number] {
         -moz-appearance: textfield;
     }
-
 </style>
 
 <body>
@@ -46,8 +45,8 @@
                                 @csrf
                                 <input type="hidden" name="token" value="{{ $request->route('token') }}">
                                 <div class="form-group mt-3">
-                                    <input type="email" class="form-control" id="email" type="email" name="email"
-                                        value="{{ $request->email }}">
+                                    <input type="email" class="form-control" id="email" type="email"
+                                        name="email" value="{{ $request->email }}">
                                     <label class="form-control-placeholder" for="email">Correo Electronico</label>
                                 </div>
                                 <div class="form-group">
