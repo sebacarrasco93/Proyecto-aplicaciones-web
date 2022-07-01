@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap Site</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
         integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
@@ -18,7 +18,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="/img/gobierno.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            <img src="/img/gobierno.png" alt="" width="30" height="24"
+                class="d-inline-block align-text-top">
             Formulario Fonasa
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -46,7 +47,8 @@
                                 <a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault('logout-form'); document.getElementById('logout-form').submit();">Cerrar
                                     Sesion</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none">
                                     @csrf
                                 </form>
                             @endauth

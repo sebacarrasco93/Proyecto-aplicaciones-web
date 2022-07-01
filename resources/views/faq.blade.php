@@ -14,15 +14,16 @@
                                 <h2 class="mb-0">
                                     <button class="btn btn-link" type="button" data-toggle="collapse"
                                         data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        ¿Cómo puedo registrarme?
+                                        ¿Cómo puedo afiliarme a Fonasa?
                                     </button>
                                 </h2>
                             </div>
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                 data-parent="#accordionExample">
                                 <div class="card-body">
-                                    Debes estar afiliado a Fonasa, puedes hacerlo por nuestra web o de forma directa en
-                                    sucursal.
+                                    <p>Para poder afiliarse, debe rellenar el formulario eligiendo la opcion afiliarse.
+                                        y completar los datos correspondientes.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -38,8 +39,8 @@
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                 data-parent="#accordionExample">
                                 <div class="card-body">
-                                    Puedes contactar nuestro CallCenter pero lamentablemente este formulario es solo para
-                                    afiliados
+                                    Si, puedes realizar una consulta sin registrarte, pero debes tener en cuenta que
+                                    no podrás realizar una consulta más de una vez.
                                 </div>
                             </div>
                         </div>
