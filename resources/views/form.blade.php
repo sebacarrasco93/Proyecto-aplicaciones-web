@@ -6,11 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Fonasa</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="{{ asset('js/fonasa.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places" async defer>
+    </script>
 </head>
 <style>
     /* Chrome, Safari, Edge, Opera */
@@ -64,7 +66,8 @@
                     <hr>
                     <div class="form-group espaciado">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Nombre" required>
+                            <input type="text" class="form-control" id="user_name" name="user_name"
+                                placeholder="Nombre" required>
                             <div class="invalid-feedback">
                                 Por favor ingrese un nombre
                             </div>
@@ -73,7 +76,8 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="apellidopaterno" name="apellidopaterno" placeholder="Apellido Paterno" required>
+                                    <input type="text" class="form-control" id="apellidopaterno"
+                                        name="apellidopaterno" placeholder="Apellido Paterno" required>
                                     <div class="invalid-feedback">
                                         Ingrese Apellido Paterno
                                     </div>
@@ -82,7 +86,8 @@
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="apellidomaterno" name="apellidomaterno" placeholder="Apellido Materno" required>
+                                    <input type="text" class="form-control" id="apellidomaterno"
+                                        name="apellidomaterno" placeholder="Apellido Materno" required>
                                     <div class="invalid-feedback">
                                         Ingrese Apellido Materno
                                     </div>
@@ -94,7 +99,8 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="user_dni" name="user_dni" placeholder="Rut" required onblur="validarRut()">
+                                    <input type="text" class="form-control" id="user_dni" name="user_dni"
+                                        placeholder="Rut" required onblur="validarRut()">
                                     <div class="invalid-feedback">
                                         Ingrese Rut
                                     </div>
@@ -103,7 +109,8 @@
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" placeholder="Nacionalidad" required>
+                                    <input type="text" class="form-control" id="nacionalidad" name="nacionalidad"
+                                        placeholder="Nacionalidad" required>
                                     <div class="invalid-feedback">
                                         Por favor rellene todos los campos
                                     </div>
@@ -115,7 +122,8 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento" placeholder="Fecha de Nacimiento" required>
+                                    <input type="date" class="form-control" id="fechanacimiento"
+                                        name="fechanacimiento" placeholder="Fecha de Nacimiento" required>
                                     <div class="invalid-feedback">
                                         Ingrese su fecha de nacimiento
                                     </div>
@@ -148,7 +156,8 @@
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating espaciado">
-                                <input type="text" class="form-control" id="user_address" name="user_address" placeholder="Direccion" required onclick="UserAddress()" {{-- onblur="leftUser()" --}}>
+                                <input type="text" class="form-control" id="user_address" name="user_address"
+                                    placeholder="Direccion" required onclick="UserAddress()" {{-- onblur="leftUser()" --}}>
                                 <div class="invalid-feedback">
                                     Por favor ingrese su direccion
                                 </div>
@@ -160,7 +169,8 @@
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating espaciado">
-                                <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad" required onblur="leftUser()">
+                                <input type="text" class="form-control" id="ciudad" name="ciudad"
+                                    placeholder="Ciudad" required onblur="leftUser()">
                                 <div class="invalid-feedback">
                                     Por favor ingrese su ciudad
                                 </div>
@@ -169,7 +179,8 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating espaciado">
-                                <input type="text" class="form-control" id="comuna" name="comuna" placeholder="Comuna" required onblur="leftUser()">
+                                <input type="text" class="form-control" id="comuna" name="comuna"
+                                    placeholder="Comuna" required onblur="leftUser()">
                                 <div class="invalid-feedback">
                                     Por favor ingrese su comuna
                                 </div>
@@ -228,7 +239,8 @@
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating espaciado">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                                <input type="text" class="form-control" id="email" name="email"
+                                    placeholder="Email" required>
                                 <div class="invalid-feedback">
                                     Por favor ingrese su email
                                 </div>
@@ -237,7 +249,8 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating espaciado">
-                                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" required>
+                                <input type="text" class="form-control" id="telefono" name="telefono"
+                                    placeholder="Telefono" required>
                                 <div class="invalid-feedback">
                                     Por favor ingrese su telefono
                                 </div>
@@ -252,11 +265,13 @@
                             a mi
                             email y/o telefono celular :</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="concentimiento" class="form-check-input" id="acepto" value="1">
+                            <input type="radio" name="concentimiento" class="form-check-input" id="acepto"
+                                value="1">
                             <label for="si" class="form-check-label">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="concentimiento" class="form-check-input" id="no" value="0">
+                            <input type="radio" name="concentimiento" class="form-check-input" id="no"
+                                value="0">
                             <label for="no" class="form-check-label">No</label>
                         </div>
                     </div>
@@ -268,7 +283,8 @@
                     <hr>
                     <div class="form-group espaciado">
                         <div class="input-group espaciado">
-                            <select id="tipoasegurado" name="tipoasegurado" class="form-select" onchange="verPension()" required>
+                            <select id="tipoasegurado" name="tipoasegurado" class="form-select"
+                                onchange="verPension()" required>
                                 <option selected disabled value="">Tipo de Asegurado</option>
                                 <option value="Cesante">Cesante</option>
                                 <option value="Pensionado">Pensionado o en Proceso</option>
@@ -330,19 +346,22 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="Emp_rut" name="rut" placeholder="Rut" onblur="validarRutEmp()">
+                                    <input type="text" class="form-control" id="Emp_rut" name="rut"
+                                        placeholder="Rut" onblur="validarRutEmp()">
                                     <label for="Emp_rut">Rut</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="Emp_nombre" name="nombre" placeholder="Nombre">
+                                    <input type="text" class="form-control" id="Emp_nombre" name="nombre"
+                                        placeholder="Nombre">
                                     <label for="Emp_nombre">Nombre o Razon Social</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="Emp_tel" name="Telefono" placeholder="Telefono">
+                                    <input type="text" class="form-control" id="Emp_tel" name="Telefono"
+                                        placeholder="Telefono">
                                     <label for="Emp_tel">Telefono</label>
                                 </div>
                             </div>
@@ -352,7 +371,8 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="Emp_direccion" name="direccion" placeholder="Direccion" onclick="EmpAddress()">
+                                    <input type="text" class="form-control" id="Emp_direccion" name="direccion"
+                                        placeholder="Direccion" onclick="EmpAddress()">
                                     <label for="Emp_direccion">Direccion</label>
                                 </div>
                             </div>
@@ -361,19 +381,22 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="number" class="form-control" id="Emp_RentaMensual" name="Renta Imponible Mensual" placeholder="Renta Imp. Mensual">
+                                    <input type="number" class="form-control" id="Emp_RentaMensual"
+                                        name="Renta Imponible Mensual" placeholder="Renta Imp. Mensual">
                                     <label for="Emp_RentaMensual">Renta Imp. Mensual</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="date" class="form-control" id="Emp_ContratoInicio" name="Inicio Vigencia Contrato" placeholder="Inicio Vigencia Contrato">
+                                    <input type="date" class="form-control" id="Emp_ContratoInicio"
+                                        name="Inicio Vigencia Contrato" placeholder="Inicio Vigencia Contrato">
                                     <label for="Emp_ContratoInicio">Inicio Contrato</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="date" class="form-control" id="Emp_ContratoTermino" name="Termino Vigencia Contrato" placeholder="Termino Vigencia Contrato">
+                                    <input type="date" class="form-control" id="Emp_ContratoTermino"
+                                        name="Termino Vigencia Contrato" placeholder="Termino Vigencia Contrato">
                                     <label for="Emp_ContratoTermino">Termino Contrato</label>
                                 </div>
                             </div>
@@ -386,7 +409,8 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="number" class="form-control" id="Renta_Total" name="Ingresos totales" placeholder="Ingresos totales" required>
+                                    <input type="number" class="form-control" id="Renta_Total"
+                                        name="Ingresos totales" placeholder="Ingresos totales" required>
                                     <div class="invalid-feedback">
                                         Por favor ingrese el total de ingresos
                                     </div>
@@ -425,19 +449,22 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="number" class="form-control" id="carRut" name="carRut" placeholder="Rut">
+                                    <input type="number" class="form-control" id="carRut" name="carRut"
+                                        placeholder="Rut">
                                     <label for="carRut">Rut</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="carNombre" name="carNombre" placeholder="Nombre">
+                                    <input type="text" class="form-control" id="carNombre" name="carNombre"
+                                        placeholder="Nombre">
                                     <label for="carNombre">Nombre</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="carApellido" name="carApellido" placeholder="Apellido">
+                                    <input type="text" class="form-control" id="carApellido" name="carApellido"
+                                        placeholder="Apellido">
                                     <label for="carApellido">Apellido</label>
                                 </div>
                             </div>
@@ -446,7 +473,8 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="date" class="form-control" id="carNac" name="carNac" placeholder="Fecha Nacimiento">
+                                    <input type="date" class="form-control" id="carNac" name="carNac"
+                                        placeholder="Fecha Nacimiento">
                                     <label for="carNac">Nacimiento</label>
                                 </div>
                             </div>
@@ -483,19 +511,22 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="number" class="form-control" id="carRut2" name="carRut2" placeholder="Rut">
+                                    <input type="number" class="form-control" id="carRut2" name="carRut2"
+                                        placeholder="Rut">
                                     <label for="carRut2">Rut</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="carNombre2" name="carNombre2" placeholder="Nombre">
+                                    <input type="text" class="form-control" id="carNombre2" name="carNombre2"
+                                        placeholder="Nombre">
                                     <label for="carNombre2">Nombre</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="carApellido2" name="carApellido2" placeholder="Apellido">
+                                    <input type="text" class="form-control" id="carApellido2" name="carApellido2"
+                                        placeholder="Apellido">
                                     <label for="carApellido2">Apellido</label>
                                 </div>
                             </div>
@@ -504,7 +535,8 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="date" class="form-control" id="carNac2" name="carNac2" placeholder="Fecha Nacimiento">
+                                    <input type="date" class="form-control" id="carNac2" name="carNac2"
+                                        placeholder="Fecha Nacimiento">
                                     <label for="carNac2">Nacimiento</label>
                                 </div>
                             </div>
@@ -542,19 +574,22 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="number" class="form-control" id="carRut3" name="carRut3" placeholder="Rut">
+                                    <input type="number" class="form-control" id="carRut3" name="carRut3"
+                                        placeholder="Rut">
                                     <label for="carRut3">Rut</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="carNombre3" name="carNombre3" placeholder="Nombre">
+                                    <input type="text" class="form-control" id="carNombre3" name="carNombre3"
+                                        placeholder="Nombre">
                                     <label for="carNombre3">Nombre</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="carApellido3" name="carApellido3" placeholder="Apellido">
+                                    <input type="text" class="form-control" id="carApellido3" name="carApellido3"
+                                        placeholder="Apellido">
                                     <label for="carApellido3">Apellido</label>
                                 </div>
                             </div>
@@ -563,7 +598,8 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="date" class="form-control" id="carNac3" name="carNac3" placeholder="Fecha Nacimiento">
+                                    <input type="date" class="form-control" id="carNac3" name="carNac3"
+                                        placeholder="Fecha Nacimiento">
                                     <label for="carNac3">Nacimiento</label>
                                 </div>
                             </div>
@@ -601,19 +637,22 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="number" class="form-control" id="carRut4" name="carRut4" placeholder="Rut">
+                                    <input type="number" class="form-control" id="carRut4" name="carRut4"
+                                        placeholder="Rut">
                                     <label for="carRut4">Rut</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="carNombre4" name="carNombre4" placeholder="Nombre">
+                                    <input type="text" class="form-control" id="carNombre4" name="carNombre4"
+                                        placeholder="Nombre">
                                     <label for="carNombre4">Nombre</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="carApellido4" name="carApellido4" placeholder="Apellido">
+                                    <input type="text" class="form-control" id="carApellido4" name="carApellido4"
+                                        placeholder="Apellido">
                                     <label for="carApellido4">Apellido</label>
                                 </div>
                             </div>
@@ -622,7 +661,8 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="date" class="form-control" id="carNac4" name="carNac4" placeholder="Fecha Nacimiento">
+                                    <input type="date" class="form-control" id="carNac4" name="carNac4"
+                                        placeholder="Fecha Nacimiento">
                                     <label for="carNac4">Nacimiento</label>
                                 </div>
                             </div>
@@ -659,19 +699,22 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="number" class="form-control" id="carRut5" name="carRut5" placeholder="Rut">
+                                    <input type="number" class="form-control" id="carRut5" name="carRut5"
+                                        placeholder="Rut">
                                     <label for="carRut5">Rut</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="carNombre5" name="carNombre5" placeholder="Nombre">
+                                    <input type="text" class="form-control" id="carNombre5" name="carNombre5"
+                                        placeholder="Nombre">
                                     <label for="carNombre5">Nombre</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="carApellido5" name="carApellido5" placeholder="Apellido">
+                                    <input type="text" class="form-control" id="carApellido5" name="carApellido5"
+                                        placeholder="Apellido">
                                     <label for="carApellido5">Apellido</label>
                                 </div>
                             </div>
@@ -680,7 +723,8 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="date" class="form-control" id="carNac5" name="carNac5" placeholder="Fecha Nacimiento">
+                                    <input type="date" class="form-control" id="carNac5" name="carNac5"
+                                        placeholder="Fecha Nacimiento">
                                     <label for="carNac5">Nacimiento</label>
                                 </div>
                             </div>
@@ -718,11 +762,13 @@
                             <label for="establecimientoInscrito" class="form-label">¿Esta inscrito en algun
                                 establecimiento público de salud?</label>
                             <div class="form-check form-check-inline">
-                                <input type="radio" name="inscrito" class="form-check-input" id="EstabIns" value="1" onclick="showEstabSi()">
+                                <input type="radio" name="inscrito" class="form-check-input" id="EstabIns"
+                                    value="1" onclick="showEstabSi()">
                                 <label for="EstabIns" class="form-check-label">Si</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input type="radio" name="inscrito" class="form-check-input" id="EstabIns" value="0" onclick="showEstabNo()">
+                                <input type="radio" name="inscrito" class="form-check-input" id="EstabIns"
+                                    value="0" onclick="showEstabNo()">
                                 <label for="EstabIns" class="form-check-label">No</label>
                             </div>
                         </div>
@@ -734,13 +780,15 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="establecimiento" name="establecimiento" placeholder="Nombre Establecimiento">
+                                    <input type="text" class="form-control" id="establecimiento"
+                                        name="establecimiento" placeholder="Nombre Establecimiento">
                                     <label for="establecimiento">Nombre Establecimiento</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="establecimientoComuna" name="establecimientoComuna" placeholder="Comuna">
+                                    <input type="text" class="form-control" id="establecimientoComuna"
+                                        name="establecimientoComuna" placeholder="Comuna">
                                     <label for="establecimientoComuna">Comuna</label>
                                 </div>
                             </div>
@@ -777,25 +825,30 @@
                             <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
                         </div>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
                             Enviar Información
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                            aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">¿Está Seguro de enviar?
                                         </h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         Si está seguro de la información contenida, presione enviar.
                                         Si desea modificar presione cancelar.
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cancelar</button>
                                         <button type="submit" class="btn btn-primary">Enviar</button>
                                     </div>
                                 </div>
@@ -811,7 +864,8 @@
     </form>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 </body>
 

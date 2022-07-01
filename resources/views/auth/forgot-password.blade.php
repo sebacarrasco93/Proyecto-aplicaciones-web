@@ -24,7 +24,6 @@
     input[type=number] {
         -moz-appearance: textfield;
     }
-
 </style>
 
 <body>
@@ -48,8 +47,8 @@
                             <form method="POST" action="{{ route('password.request') }}" class="signin-form">
                                 @csrf
                                 <div class="form-group mt-3">
-                                    <input type="text" class="form-control" id="email" type="email" name="email"
-                                        required />
+                                    <input type="text" class="form-control" id="email" type="email"
+                                        name="email" required />
                                     <label class="form-control-placeholder" for="email">Correo Electronico</label>
                                 </div>
                                 <div class="form-group">

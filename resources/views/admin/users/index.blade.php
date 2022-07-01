@@ -28,8 +28,7 @@
                         <td>{{ $user->created_at }}</td>
                         <td>
                             <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary">Editar</a>
-                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
-                                class="d-inline">
+                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" class="d-inline">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-danger">Eliminar</button>

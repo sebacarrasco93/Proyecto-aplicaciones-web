@@ -42,8 +42,8 @@
                             <form method="POST" action="{{ route('login') }}" class="signin-form">
                                 @csrf
                                 <div class="form-group mt-3">
-                                    <input type="text" class="form-control" id="email" type="email" name="email"
-                                        required />
+                                    <input type="text" class="form-control" id="email" type="email"
+                                        name="email" required />
                                     <label class="form-control-placeholder" for="email">Correo</label>
                                 </div>
                                 <div class="form-group">
