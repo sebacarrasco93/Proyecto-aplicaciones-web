@@ -45,19 +45,17 @@ class FormController extends Controller
     public function show($user_dni)
     {
         $form = Formulario::where('user_dni', $user_dni)->get();
-        if (isNull($form)) {
+        if ($form->isEmpty()) {
             return response()->json([
                 "success" => false,
-                "message" => "Formulario no Encontrado - Ingrese correctamente el RUT del usuario",
-                "status" => 404
-            ]);
+                "message" => "No se encontraron formularios para el usuario con DNI: " . $user_dni
+            ], 404);
         }
         return response()->json([
             "success" => true,
-            "message" => "Exito",
-            "data" => $form,
-            "status" => 200
-        ]);
+            "message" => "Formularios encontrados para el usuario con DNI: " . $user_dni,
+            "data" => $form
+        ], 200);
     }
     /**
      * Update the specified resource in storage.
