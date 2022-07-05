@@ -17,11 +17,11 @@ class FormController extends Controller
      */
     public function index()
     {
-        $form = Formulario::all();
+        //$form = Formulario::all();
         return response()->json([
             "success" => false,
             "message" => "Vemos que querias ver mas de lo permitido. Está prohibido"
-        ]);
+        ], 401);
     }
     /**
      * Store a newly created resource in storage.
@@ -31,7 +31,10 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json([
+            "success" => false,
+            "message" => "Vemos que querias hacer mas de lo permitido. Está prohibido",
+        ], 401);
     }
     /**
      * Display the specified resource.
@@ -45,13 +48,15 @@ class FormController extends Controller
         if (isNull($form)) {
             return response()->json([
                 "success" => false,
-                "message" => "Formulario no Encontrado - Ingrese correctamente el RUT del usuario"
+                "message" => "Formulario no Encontrado - Ingrese correctamente el RUT del usuario",
+                "status" => 404
             ]);
         }
         return response()->json([
             "success" => true,
             "message" => "Exito",
-            "data" => $form
+            "data" => $form,
+            "status" => 200
         ]);
     }
     /**
@@ -63,7 +68,10 @@ class FormController extends Controller
      */
     public function update(Request $request)
     {
-        //
+        return response()->json([
+            "success" => false,
+            "message" => "Vemos que querias hacer mas de lo permitido. Está prohibido"
+        ], 401);
     }
     /**
      * Remove the specified resource from storage.
@@ -73,6 +81,9 @@ class FormController extends Controller
      */
     public function destroy(Request $request)
     {
-        //
+        return response()->json([
+            "success" => false,
+            "message" => "Vemos que querias hacer mas de lo permitido. Está prohibido"
+        ], 401);
     }
 }
