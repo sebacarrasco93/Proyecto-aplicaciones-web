@@ -9239,3 +9239,9 @@ h1, h2, h3, h4, h5,
   background: #01d28e;
   color: #fff;
 }
+
+.container-sm {
+  background-color: rgba(242, 254, 255, .78);
+  max-width: 1050px !important;
+
+}
