@@ -111,7 +111,7 @@ function validarRut() {
         method: "GET",
         timeout: 0,
         statusCode: {
-            400: function () {
+            400: function (response) {
                 document.getElementById("user_dni").style.borderColor = "red";
                 document.getElementById("user_dni").value = "";
                 alert("El Rut es Invalido");
@@ -156,7 +156,7 @@ function validarRutEmp() {
         method: "GET",
         timeout: 0,
         statusCode: {
-            400: function () {
+            400: function (response) {
                 document.getElementById("Emp_rut").style.borderColor = "red";
                 document.getElementById("Emp_rut").value = "";
                 alert("El Rut es Invalido");
@@ -202,6 +202,7 @@ function UserAddress() {
     var input = document.getElementById("user_address");
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.addListener("place_changed", function () {
+        var place = autocomplete.getPlacePredictions();
     });
 }
 
@@ -209,6 +210,7 @@ function EmpAddress() {
     var input = document.getElementById("Emp_direccion");
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.addListener("place_changed", function () {
+        var place = autocomplete.getPlacePredictions();
     });
 }
 
@@ -221,17 +223,11 @@ async function getUser() {
         method: "GET",
         timeout: 0,
         statusCode: {
-            400: function () {
+            400: function (response) {
                 event.preventDefault();
             },
-            404: function () {
+            404: function (response) {
                 document.getElementById("user_name").style.borderColor = "red";
-                document.getElementById("apellidopaterno").style.borderColor =
-                    "red";
-                document.getElementById("apellidomaterno").style.borderColor =
-                    "red";
-                document.getElementById("email").style.borderColor = "red";
-                document.getElementById("region").style.borderColor = "red";
                 event.preventDefault();
             },
         },
@@ -245,22 +241,7 @@ async function getUser() {
         }
         if (data2.length > 0) {
             console.log(data2);
-            document.getElementById("user_name").style.borderColor = "green";
             document.getElementById("user_name").value = data2[0].user_name;
-            document.getElementById("apellidopaterno").style.borderColor =
-                "green";
-            document.getElementById("apellidopaterno").value =
-                data2[0].apellidopaterno;
-            document.getElementById("apellidomaterno").style.borderColor =
-                "green";
-            document.getElementById("apellidomaterno").value =
-                data2[0].apellidomaterno;
-            document.getElementById("user_address").style.borderColor = "green";
-            document.getElementById("user_address").value =
-                data2[0].user_address;
-            document.getElementById("email").style.borderColor = "green";
-            document.getElementById("email").value = data2[0].email;
-            document.getElementById("region").value = data2[0].region;
         }
     });
 }

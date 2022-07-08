@@ -44,7 +44,18 @@ class FormController extends Controller
      */
     public function show($user_dni)
     {
-        $form = Formulario::where('user_dni', $user_dni)->get();
+        $form = Formulario::where('user_dni', $user_dni)
+            ->select(
+                'user_dni',
+                'user_name',
+                'apellidopaterno',
+                'apellidomaterno',
+                'email',
+                'user_address',
+                'region',
+                'created_at'
+            )
+            ->get();
         if ($form->isEmpty()) {
             return response()->json([
                 "success" => false,

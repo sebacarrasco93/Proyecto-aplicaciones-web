@@ -15,13 +15,15 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <!-- JS -->
     <script src="{{ asset('js/fonasa.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places" async defer>
     </script>
+
+    <!-- Vite -->
+    @vite(['resources/js/app.js', 'resources/css/style.css'])
 
 </head>
 
@@ -41,6 +43,14 @@
     .espaciado {
         margin-bottom: 10px;
     }
+
+    body {
+        background-image: url('/img/Back.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
 </style>
 
 <body>

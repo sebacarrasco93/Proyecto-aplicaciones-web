@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('form', FormController::class);
+#Route::resource('form', FormController::class);
+Route::get('form/search/{user_dni}', FormController::class . '@show');

@@ -152,31 +152,6 @@
         <div class="row g-2">
             <div class="col-md">
                 <div class="form-floating espaciado">
-                    <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad"
-                        value="{{ old('ciudad') }} @isset($formulario) {{ $formulario->ciudad }} @endisset"
-                        required onblur="leftUser()">
-                    <div class="invalid-feedback">
-                        Por favor ingrese su ciudad
-                    </div>
-                    <label for="ciudad">Ciudad</label>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="form-floating espaciado">
-                    <input type="text" class="form-control" id="comuna" name="comuna" placeholder="Comuna"
-                        value="{{ old('comuna') }} @isset($formulario) {{ $formulario->comuna }} @endisset"
-                        required onblur="leftUser()">
-                    <div class="invalid-feedback">
-                        Por favor ingrese su comuna
-                    </div>
-                    <label for="comuna">Comuna</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="row g-2">
-            <div class="col-md">
-                <div class="form-floating espaciado">
                     <select class="form-select" id="region" name="region" required>
                         <option selected
                             value="{{ old('region') }} @isset($formulario) {{ $formulario->region }} @endisset">
@@ -838,17 +813,10 @@
             </div>
             <hr>
         </fieldset>
-        <div class="row">
-            <div class="form-group espaciado">
-                <label from="mensaje">Declaracion Jurada</label>
-                <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
-            </div>
-        </div>
         <div class="form-group">
             <button type="submit" class="form-control btn btn-primary rounded submit px-3">
                 Enviar
             </button>
         </div>
-        </form>
     </div>
 </div>
