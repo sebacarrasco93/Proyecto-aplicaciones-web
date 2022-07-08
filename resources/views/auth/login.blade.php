@@ -24,6 +24,13 @@
     input[type=number] {
         -moz-appearance: textfield;
     }
+
+    body {
+        background-image: url('img/Back.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
 </style>
 
 <body>

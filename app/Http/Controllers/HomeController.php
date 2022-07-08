@@ -112,19 +112,29 @@ class HomeController extends Controller
         $formulario->nacionalidad = $request->nacionalidad;
         $formulario->fechanacimiento = $request->fechanacimiento;
         $formulario->sexo = $request->sexo;
-        $formulario->comuna = $request->comuna;
-        $formulario->ciudad = $request->ciudad;
         $formulario->region = $request->region;
         $formulario->tipodepropiedad = $request->tipodepropiedad;
         $formulario->user_address = $request->user_address;
         $formulario->email = $request->email;
-        $formulario->mensaje = $request->mensaje;
         $formulario->telefono = $request->telefono;
         $formulario->concentimiento = $request->concentimiento;
         $formulario->tipoasegurado = $request->tipoasegurado;
         $formulario->pensionado = $request->pensionado;
         $formulario->pagadorapension = $request->pagadorapension;
+        $formulario->Emp_rut = $request->Emp_rut;
+        $formulario->Emp_nombre = $request->Emp_nombre;
+        $formulario->Emp_direccion = $request->Emp_direccion;
+        $formulario->Emp_tel = $request->Emp_tel;
+        $formulario->Emp_RentaMensual = $request->Emp_RentaMensual;
+        $formulario->Emp_ContratoInicio = $request->Emp_ContratoInicio;
+        $formulario->Emp_ContratoTermino = $request->Emp_ContratoTermino;
+        $formulario->Renta_Total = $request->Renta_Total;
+        $formulario->EstabIns = $request->EstabIns;
+        $formulario->Salud_establecimiento = $request->Salud_establecimiento;
+        $formulario->establecimientoComuna = $request->establecimientoComuna;
+        $formulario->establecimeintoRegion = $request->establecimeintoRegion;
         $formulario->save();
-        return response()->json($request->all());
+        $request->session()->flash('success', 'Se ha registrado correctamente el formulario');
+        return redirect(url('/'));
     }
 }

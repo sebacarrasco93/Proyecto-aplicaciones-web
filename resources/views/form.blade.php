@@ -8,9 +8,12 @@
     <title>Formulario Fonasa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="{{ asset('js/fonasa.js') }}"></script>
+    @vite(['resources/js/app.js', 'resources/css/style.css'])
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var api_db = '{{ env('VITE_API_DB') }}';
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places" async defer>
     </script>
 </head>
@@ -30,6 +33,13 @@
     .espaciado {
         margin-bottom: 10px;
     }
+
+    body {
+        background-image: url('/img/Back.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
 </style>
 
 <body>
@@ -37,11 +47,12 @@
     <form action="{{ route('formulario') }}" class="needs-validation" method="POST" novalidate>
         @csrf
         <div class="container-sm">
-            <div class="col-md-8 offset-md-2" style="text-align:center; padding:0.5em 0">
-                <img src="{{ asset('img/indice.png') }}" class="img-fluid">
+            <!-- <div class="container-sm"> -->
+            <div class="col-md-10 offset-md-1" style="text-align:center; padding:0.5em 0">
+                <img src="{{ asset('img/logo.png') }}" class="img-fluid">
             </div>
             <div class="row">
-                <div class="col-md-8 offset-md-2">
+                <div class="col-md-10 offset-md-1">
                     <p class=h4>Tipo de Solicitud</p>
                     <hr>
                     <select id="tiposolicitud" name="tiposolicitud" class="form-select" required>
@@ -61,17 +72,19 @@
             </div>
 
             <div class="row">
-                <div class="col-md-8 offset-md-2">
+                <div class="col-md-10 offset-md-1">
                     <p class=h4>Datos Asegurado</p>
                     <hr>
                     <div class="form-group espaciado">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="user_name" name="user_name"
-                                placeholder="Nombre" required>
-                            <div class="invalid-feedback">
-                                Por favor ingrese un nombre
+                        <div class="row g-2">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="user_name" name="user_name"
+                                    placeholder="Nombre" onclick="getUser()" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un nombre
+                                </div>
+                                <label for="user_name">Nombre</label>
                             </div>
-                            <label for="user_name">Nombre</label>
                         </div>
                         <div class="row g-2">
                             <div class="col-md">
@@ -107,6 +120,7 @@
                                     <label for="rut">Rut</label>
                                 </div>
                             </div>
+
                             <div class="col-md">
                                 <div class="form-floating espaciado">
                                     <input type="text" class="form-control" id="nacionalidad" name="nacionalidad"
@@ -150,14 +164,14 @@
                 </div>
                 <!-- Segunda columna -->
 
-                <div class="col-md-8 offset-md-2">
+                <div class="col-md-10 offset-md-1">
                     <p class=h4>Datos de Contacto</p>
                     <hr>
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating espaciado">
                                 <input type="text" class="form-control" id="user_address" name="user_address"
-                                    placeholder="Direccion" required onclick="UserAddress()" {{-- onblur="leftUser()" --}}>
+                                    placeholder="Direccion" required onclick="UserAddress()">
                                 <div class="invalid-feedback">
                                     Por favor ingrese su direccion
                                 </div>
@@ -165,30 +179,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-floating espaciado">
-                                <input type="text" class="form-control" id="ciudad" name="ciudad"
-                                    placeholder="Ciudad" required onblur="leftUser()">
-                                <div class="invalid-feedback">
-                                    Por favor ingrese su ciudad
-                                </div>
-                                <label for="ciudad">Ciudad</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating espaciado">
-                                <input type="text" class="form-control" id="comuna" name="comuna"
-                                    placeholder="Comuna" required onblur="leftUser()">
-                                <div class="invalid-feedback">
-                                    Por favor ingrese su comuna
-                                </div>
-                                <label for="comuna">Comuna</label>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating espaciado">
@@ -278,7 +268,7 @@
                     <hr>
                 </div>
                 <!-- Tercera Columna -->
-                <div class="col-md-8 offset-md-2">
+                <div class="col-md-10 offset-md-1">
                     <p class=h4>Tipo de Asegurado</p>
                     <hr>
                     <div class="form-group espaciado">
@@ -367,7 +357,6 @@
                             </div>
                         </div>
 
-                        <!-- Direccion larga por tema estetico para escritura -->
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
@@ -377,7 +366,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Continuacion Formulario -->
+
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
@@ -422,7 +411,7 @@
                     </fieldset>
                 </div>
 
-                <div class="col-md-8 offset-md-2">
+                <div class="col-md-10 offset-md-1">
 
                     <p class=h4>Cargas Familiares</p>
                     <hr>
@@ -758,7 +747,7 @@
                     <hr>
                     <P class=h4>Establecimientos Publicos de Salud</h4>
                     <div class="row mb-3">
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <label for="establecimientoInscrito" class="form-label">¿Esta inscrito en algun
                                 establecimiento público de salud?</label>
                             <div class="form-check form-check-inline">
@@ -780,7 +769,7 @@
                         <div class="row g-2">
                             <div class="col-md">
                                 <div class="form-floating espaciado">
-                                    <input type="text" class="form-control" id="establecimiento"
+                                    <input type="text" class="form-control" id="Salud_establecimiento"
                                         name="establecimiento" placeholder="Nombre Establecimiento">
                                     <label for="establecimiento">Nombre Establecimiento</label>
                                 </div>
@@ -820,10 +809,6 @@
                         <hr>
                     </fieldset>
                     <div class="row">
-                        <div class="form-group espaciado">
-                            <label from="mensaje">Declaracion Jurada</label>
-                            <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
-                        </div>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop">
@@ -843,8 +828,9 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Si está seguro de la información contenida, presione enviar.
-                                        Si desea modificar presione cancelar.
+                                        Yo declaro bajo juramento que todo lo informado en este formulario es
+                                        verdadero y que Fonasa lo leerá y lo
+                                        entenderá como tal.
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -861,6 +847,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
     </form>
 
 
