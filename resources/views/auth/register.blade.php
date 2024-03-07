@@ -18,7 +18,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-7 col-lg-5">
                     <div class="wrap">
-                        <div class="img" style="background-image: url(img/fonasa_2.jpg)"></div>
+                        <div class="img" style="background-image: url({{ asset('img/fonasa_2.jpg') }})"></div>
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">
                                 <div class="w-100">
@@ -28,13 +28,13 @@
                             <form method="POST" action="{{ route('register') }}" class="register-form">
                                 @csrf
                                 <div class="form-group mt-3">
-                                    <input type="text" class="form-control" id="name" type="name" name="name"
-                                        required />
+                                    <input type="text" class="form-control" id="name" type="name"
+                                        name="name" required />
                                     <label class="form-control-placeholder" for="name">Nombre y Apellido</label>
 
                                     <div class="form-group mt-3">
-                                        <input type="text" class="form-control" id="email" type="email" name="email"
-                                            required />
+                                        <input type="text" class="form-control" id="email" type="email"
+                                            name="email" required />
                                         <label class="form-control-placeholder" for="email">Correo</label>
                                     </div>
 

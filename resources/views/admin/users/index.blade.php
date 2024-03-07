@@ -1,7 +1,6 @@
 @extends('templates.index')
 
 @section('content')
-
     <div class="row">
         <div class="col-12">
             <h1 class="float-left">Usuarios</h1>
@@ -29,20 +28,16 @@
                         <td>{{ $user->created_at }}</td>
                         <td>
                             <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary">Editar</a>
-                            <button type="button" class="btn btn-danger" onclick="event.preventDefault();
-                                        document.getElementById('delete-user-form-{{ $user->id }}')">
-                                Eliminar
-                            </button>
-                            <form id="delete-user-form-{{ $user->id }}"
-                                action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
-                                style="display: none;">
-                                @csrf
+                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" class="d-inline">
                                 @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
                             </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+        {{ $users->links() }}
     </div>
 @endsection
